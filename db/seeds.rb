@@ -1,4 +1,4 @@
-User.create(email: "admin@example.com", password: "123123")
+User.create(email: "admin@example.com", password: "123123", role: "admin")
 puts "Default admin created!"
 
 Agency.create!(name: "Social Service Office @ Ang Mo Kio", office_number: "65547929", fax_number: "64582040", address: "6A Ang Mo Kio, St 53, Ang Mo Kio 3G Centre, Singapore 569208", email: "sso_amk_admin@msf.gov.sg", website: "", opening_hours: "Monday - Friday: 9am - 6pm, last registration at 5pm, closed for lunch from 1-2pm. Closed on Saturdays, Sundays and Public Holidays.", category: 0, criteria: "Lower-income Families", description: "" )

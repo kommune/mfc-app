@@ -1,5 +1,6 @@
 class Admin::AgenciesController < ApplicationController
 
+  before_action :authenticate_admin
   before_action :authenticate_user!
   before_action :set_agency, only:  [:show, :edit, :update, :destroy]
 
@@ -45,6 +46,12 @@ class Admin::AgenciesController < ApplicationController
   end
 
   private
+
+  def authenticate_admin
+    unless current_user.admin?
+      flash[:alert] = "Not allowed"
+      redirect_to root_path
+  end
 
   def agency_params
     params.require(:agency).permit(:name, :office_number, :fax_number, :address, :email, :website, :opening_hours, :category, :criteria, :description)
