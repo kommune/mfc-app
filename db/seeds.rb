@@ -18,7 +18,7 @@ Agency.create(name: "Malabar Muslim Jama’ath Mosque", office_number: "62943862
 Agency.create(name: "4PM (Malay Youth Literacy Association)", office_number: "62426288", fax_number: "62420610", address: "Blk 606 Bedok Reservoir Road #01-716 Singapore 470606", email: "secretariat@4pm.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
 Agency.create(name: "Sri Sathya Sai Society Singapore", office_number: "63546669", fax_number: "", address: "133 Moulmein Road, Singapore 308083", email: "admin@saisociety.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
 Agency.create(name: "Loving Heart Multi-Service Centre", office_number: "68794766 ", fax_number: "68975845", address: "Blk 210, Jurong East Street 21, #01-389 Singapore 600210", email: "lhmsc@singnet.com.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
-Agency.create(name: "BikeAid", office_number: "6", fax_number: "", address: "Block 32 #02-02 Defu Lane 10 Singapore 539213", email: "enquiry@bikeaid.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "BikeAid", office_number: "", fax_number: "", address: "Block 32 #02-02 Defu Lane 10 Singapore 539213", email: "enquiry@bikeaid.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
 
 puts "20 Agency created!"
 
