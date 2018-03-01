@@ -2,7 +2,7 @@ class CreateAgencies < ActiveRecord::Migration[5.1]
   def change
     create_table :agencies do |t|
       t.string :name, null: false
-      t.integer :office_number
+      t.bigint :office_number
       t.integer :fax_number
       t.string :address, null: false
       t.string :email

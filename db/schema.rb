@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180301000907) do
 
   create_table "agencies", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "office_number"
+    t.bigint "office_number"
     t.integer "fax_number"
     t.string "address", null: false
     t.string "email"
