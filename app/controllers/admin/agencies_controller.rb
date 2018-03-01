@@ -51,6 +51,7 @@ class Admin::AgenciesController < ApplicationController
     unless current_user.admin?
       flash[:alert] = "Not allowed"
       redirect_to root_path
+    end
   end
 
   def agency_params
