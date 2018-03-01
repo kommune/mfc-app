@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Agency.create(name: "YWCA", office_number: "62231227", fax_number: "6227 3650", address: "254 Outram Road Singapore 169051", email: "admin@ywca.org.sg", website: "", opening_hours: "",category: 2, criteria: "", description: "")
+Agency.create(name: "Catholic Welfare Services", office_number: "63377954", fax_number: "63361513", address: "#06-01 Catholic Centre 55 Waterloo Street Singapore 187954", email: "generalenquiries@catholicwelfare.org.sg", website: "http://www.catholicwelfare.org.sg/food-ration-bene.html",opening_hours: "", category: 2,criteria: "", description: "")
+Agency.create(name: "Jamiyah Singapore ", office_number: "69102083", fax_number: "", address: "9 Tannery Lane Singapore 347772", email: "foodbank@jamiyah.org.sg", website: "http://jfb.jamiyah.org.sg/", opening_hours: "", category: 2, criteria: "", description: "Jamiyah Food Bank (JamPacked) Program")
+Agency.create(name: "Society of St Vincent de Paul (SSVP)", office_number: "6801 7480", fax_number: "", address: "7A Lorong 8 Toa Payoh Agape Village #04-01 Singapore 319264", email: "ssvp.ao@ssvpsingapore.org", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Food From the Heart", office_number: "62804483", fax_number: "62804498 ", address: "130 Joo Seng Road #03-01 Singapore 368357", email: "info@foodheart.org", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Shan You Counselling Centre", office_number: "67459216", fax_number: "67459351", address: "Blk 3 Eunos Crescent #01-2593 Singapore 400003", email: "foodrations@shanyou.org.sg", website: "http://www.shanyou.org.sg/en/services/food-ration-distribution-.html", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Caregiving Welfare Association", office_number: "64667957", fax_number: "64665927", address: "Blk 3, Ghim Moh Road,#01-294,Singapore 270003", email: "contact@cwa.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "CWA provides periodic food rations for the needy elderly. Food rationing is only eligible for lower income families and are subjected to assessments")
+Agency.create(name: "Man Fut Tong Nursing Home", office_number: "31571151", fax_number: "63686303", address: "20 Woodlands, Street 82, Singapore 738507", email: "mft@mft.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Singapore Red Cross ", office_number: "66640500", fax_number: "63374360", address: "Singapore Red Cross Society 15 Penang Lane Singapore 238486", email: "communityservices@redcross.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "Meals with Love program by FoodAid")
+Agency.create(name: "The Salvation Army", office_number: "62737207", fax_number: "62731972", address: "Blk 42 Beo Crescent #01-95 Singapore 160042", email: "fss_beo@smm.salvationarmy.org", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Heart to Heart Service", office_number: "63339439", fax_number: "", address: "9 Selegie Road #03-33 Singapore 180009", email: "enquiry@hearttoheartservice.org", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Bo Tien Welfare Services Society", office_number: "62626021", fax_number: "62620889 ", address: "No. 6 Fourth Chin Bee Road Singapore 619708", email: "botiensg@singnet.com.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Hindu Endowments Board (HEB)", office_number: "67539730 ", fax_number: "67533727", address: "30 Durban Road Singapore (759642)", email: "enquiries@ashram.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Society of Sheng Hong Welfare Services", office_number: "62895022", fax_number: "67445385", address: "No. 15 Arumugum Road Singapore 409960", email: "shtemple@singnet.com.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "PERGAS (Singapore Islamic Scholars and Religious Teachers Association)", office_number: "63469350", fax_number: "", address: "Wisma Indah 448 Changi Road #03-01 Singapore 419975", email: "info@pergas.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Muslimin Trust Fund ", office_number: "67465729", fax_number: "6741 1609", address: "Muslimin Trust Fund Association Darul Ihsan Orphanage Building 5 Mattar Road Singapore 387713", email: "adminMTFA@mtfa.org", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Malabar Muslim Jama’ath Mosque", office_number: "62943862", fax_number: "63923981", address: "471 Victoria Street Singapore – 198370", email: " malabarmosque@singnet.com.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "4PM (Malay Youth Literacy Association)", office_number: "62426288", fax_number: "62420610", address: "Blk 606 Bedok Reservoir Road #01-716 Singapore 470606", email: "secretariat@4pm.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Sri Sathya Sai Society Singapore", office_number: "63546669", fax_number: "", address: "133 Moulmein Road, Singapore 308083", email: "admin@saisociety.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "Loving Heart Multi-Service Centre", office_number: "68794766 ", fax_number: "68975845", address: "Blk 210, Jurong East Street 21, #01-389 Singapore 600210", email: "lhmsc@singnet.com.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+Agency.create(name: "BikeAid", office_number: "6", fax_number: "", address: "Block 32 #02-02 Defu Lane 10 Singapore 539213", email: "enquiry@bikeaid.org.sg", website: "", opening_hours: "", category: 2, criteria: "", description: "")
+
+puts "20 Agency created!"
+
+User.create(email: "admin@example.com", password: "123123")
+puts "Default admin created!"
