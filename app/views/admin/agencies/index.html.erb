@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Agencies</h1>
+      <br>
+      <div>
+        <%= link_to 'New Agency', new_admin_agency_path, class: "btn btn-primary" %>
+      </div>
+      <br>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @agencies.each do |agency| %>
+          <tr>
+            <td><%= agency.name %></td>
+            <td><%= agency.category %></td>
+            <td>
+              <%= link_to 'Show', admin_agency_path(agency) %>
+              <%= link_to 'Edit', edit_admin_agency_path(agency) %>
+              <%= link_to 'Delete', admin_agency_path(agency), method: :delete, data: {confirm:"Are you sure?"} %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

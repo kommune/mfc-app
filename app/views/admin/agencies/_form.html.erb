@@ -1,0 +1,88 @@
+<% if @agency.errors.any? %>
+  <div class="container ">
+    <div class="row d-flex justify-content-center">
+      <div class="alert alert-info col-md-6" role="alert">
+        <h4>We have some errors here !</h4>
+          <ul>
+            <% @agency.errors.full_messages.each do |msg| %>
+              <li class="mb-0"><%= msg %></li>
+            <% end %>
+          </ul>
+        <hr>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="container ">
+  <div class="row d-flex justify-content-center">
+  <div class="col-md-7">
+    <%= form_for [:admin, @agency] do |f| %>
+    <div class="card mt-5">
+      <div class="card-header">
+        <h4>Forms</h4>
+      <div class="card-body">
+        <form>
+        
+          <div class="form-group">
+            <%= f.label :name, "Name" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :office_number, "Office Number" %>
+            <%= f.text_field :office_number, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :fax_number, "Fax Number" %>
+            <%= f.text_field :fax_number, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :adddress, "Address" %>
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email, "E-mail" %>
+            <%= f.text_field :email, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :website, "Website" %>
+            <%= f.text_field :website, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :opening_hours, "Opening Hours" %>
+            <%= f.text_field :opening_hours, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :category, "Category" %>
+            <%= f.select :category, Agency.categories.keys.to_a, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :criteria, "Criteria" %>
+            <%= f.text_field :criteria, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, "Description" %>
+            <%= f.text_field :description, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit class: "btn btn-primary" %>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+     <% end %>
+  </div>
+
+  </div>
+</div
