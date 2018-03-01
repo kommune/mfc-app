@@ -19,7 +19,7 @@
           <% @agencies.each do |agency| %>
           <tr>
             <td><%= agency.name %></td>
-            <td><%= agency.category %></td>
+            <td><%= agency.category.humanize %></td>
             <td>
               <%= link_to 'Show', admin_agency_path(agency) %>
               <%= link_to 'Edit', edit_admin_agency_path(agency) %>
