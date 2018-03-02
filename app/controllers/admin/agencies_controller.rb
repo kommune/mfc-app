@@ -1,5 +1,7 @@
 class Admin::AgenciesController < ApplicationController
 
+  layout 'admin'
+
   before_action :authenticate_admin!
   before_action :set_agency, only:  [:show, :edit, :update, :destroy]
 
