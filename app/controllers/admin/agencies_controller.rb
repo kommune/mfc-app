@@ -32,8 +32,8 @@ class Admin::AgenciesController < ApplicationController
 
   def update
     if @agency.update(agency_params)
-      flash[:notice] = "rAgency was successfully updated"
-      redirect_to admin_ragency_path(@agency)
+      flash[:notice] = "Agency was successfully updated"
+      redirect_to admin_agency_path(@agency)
     else
       flash.now[:alert] = "Agency was failed to update"
       render :edit
@@ -47,13 +47,6 @@ class Admin::AgenciesController < ApplicationController
   end
 
   private
-
-  def authenticate_admin
-    unless current_user.admin?
-      flash[:alert] = "Not allowed"
-      redirect_to root_path
-    end
-  end
 
   def agency_params
     params.require(:agency).permit(:name, :office_number, :fax_number, :address, :email, :website, :opening_hours, :category, :criteria, :description)
