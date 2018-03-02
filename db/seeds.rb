@@ -1,5 +1,9 @@
-Admin.create(name: "Admin" email: "admin@@montfortcare.org.sg", password: "123123")
+Admin.create!(name: "Admin", email: "admin@montfortcare.org.sg", password: "123123")
 puts "Default admin created!"
+
+User.create!(name: "User1", username: "user1", password: "123123", postal_code: "650175", email: "user1@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22))
+User.create!(name: "User2", username: "user2", password: "123123", postal_code: "650175", email: "user2@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22))
+puts "2 users created!"
 
 Agency.create!(name: "Social Service Office @ Ang Mo Kio", office_number: "65547929", fax_number: "64582040", address: "6A Ang Mo Kio, St 53, Ang Mo Kio 3G Centre, Singapore 569208", email: "sso_amk_admin@msf.gov.sg", website: "", opening_hours: "Monday - Friday: 9am - 6pm, last registration at 5pm, closed for lunch from 1-2pm. Closed on Saturdays, Sundays and Public Holidays.", category: 0, criteria: "Lower-income Families", description: "" )
 Agency.create!(name: "Social Service Office @ Bedok" ,office_number: "18002220000", fax_number: "", address: "Blk 426 Bedok North Road, #01-515, Singapore 460426", email: "", website: "", opening_hours: "Monday - Friday: 9am - 6pm, last registration at 5pm, closed for lunch from 1-2pm. Closed on Saturdays, Sundays and Public Holidays.", category: 0,criteria: "Lower-income Families", description: "" )
