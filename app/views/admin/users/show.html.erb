@@ -1,0 +1,38 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>E-mail:</strong>
+  <td><%= @user.email%></td>
+</p>
+<p>
+  <strong>Postal Code:</strong>
+  <td><%= @user.postal_code %></td>
+</p>
+<p>
+  <strong>Date of birth:</strong>
+  <td><%= @user.birth_date %></td>
+</p>
+<p>
+  <strong>Gender:</strong>
+  <td><%= @user.gender %></td>
+</p>
+<p>
+  <strong>Marital Status:</strong>
+  <td><%= @user.marital_status %></td>
+</p>
+<p>
+  <strong>Children:</strong>
+  <td><%= @user.children %></td>
+</p>
+
+<%= link_to 'Back Index', admin_users_path, class: 'btn btn-info'%> 
+<%= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-primary'%>
+<%= link_to 'Delete', admin_user_path(@user), method: :delete, data: {confirm:"Are you sure?"}, class: 'btn btn-danger' %> 

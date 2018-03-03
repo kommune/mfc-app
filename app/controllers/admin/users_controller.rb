@@ -2,7 +2,6 @@ class Admin::UsersController < ApplicationController
 
   layout 'admin'
 
-  before_action :authenticate_admin!
   before_action :set_user, only:  [:show, :edit, :update, :destroy]
 
   def index
