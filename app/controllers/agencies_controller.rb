@@ -1,7 +1,7 @@
 class AgenciesController < ApplicationController
 
   def index
-    @agencies = Agency.all
+    @agencies = Agency.page(params[:page]).per(10)
   end
 
   def show
