@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :username, presence: :true, uniqueness: true
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validates :birth_date, presence: true
+  validates :postal_code, numericality: { only_integer: true }, length: { is: 6 }
 
   enum gender: [ :male, :female ]
   enum marital_status: [ :single, :married, :divorced, :widowed ]
