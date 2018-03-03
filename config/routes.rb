@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :agencies, only: [:index, :show]
 
+  resources :users, only: [:edit, :update]
+
   root to: "agencies#index"
 
   namespace :admin do

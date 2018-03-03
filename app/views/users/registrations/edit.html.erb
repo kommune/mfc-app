@@ -14,66 +14,30 @@
               <%= f.text_field :username, autofocus: true, class: "form-control", disable: true %>
             </div>
 
-            <div class="form-group">
-              <%= f.label :name, "Name" %>
-              <%= f.text_field :name, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :email, "E-mail" %>
-              <%= f.email_field :email, class: "form-control", autocomplete: "email", disable: true %>
-            </div>
-
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
 
             <div class="form-group">
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %>
-              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "leave blank if you don't want to change it"  %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+              <%= f.label :current_password, "Old Password" %>
               <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :postal_code, "Postal Code" %>
-              <%= f.text_field :postal_code, class: "form-control" %>
+              <%= f.label :password, "New Password" %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
             </div>
 
             <div class="form-group">
-              <%= f.label :birth_date, "Date of Birth" %>
-              <%= f.date_select :birth_date, start_year: 1920, end_year: Date.today.year, order: [:day, :month, :year], default: Date.today, class: "form-control" %>
-
+              <%= f.label :password_confirmation, "Confirm Password" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :gender, "Gender" %>
-              <%= f.select :gender, User.genders.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :marital_status, "Marital Status" %>
-              <%= f.select :marital_status, User.marital_statuses.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :children, "Children" %>
-              <%= f.select :children, User.children.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.submit "Update", class: "btn btn-primary" %>
+              <%= f.submit "Change Password", class: "btn btn-primary" %>
               <%= link_to "Back", :back , class: "btn btn-info"%>
             </div>
           </form>

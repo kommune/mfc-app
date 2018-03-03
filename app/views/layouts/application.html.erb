@@ -27,10 +27,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
           <% if current_user %>
+            <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>
+            <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>
             <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %></li> 
-            <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_registration_path , class: 'nav-link') %></li>
           <% else %>
-            <li class="navbar-nav nav-item"><%= link_to('Register', new_user_registration_path, class: 'nav-link') %></li> 
+            <li class="navbar-nav nav-item"><%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %></li> 
             <li class="navbar-nav nav-item"><%= link_to('Log in', new_user_session_path, class: 'nav-link') %></li>
           <% end %>
         </ul>
