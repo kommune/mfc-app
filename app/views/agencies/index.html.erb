@@ -1,21 +1,14 @@
 <section id="agency-index">
   <div class="container">
-    <div class="row justify-content-center">
-      <% @agencies.each do |agency| %>
-      <div class="col-md-8 mt-3">
-        <div class="card py-1">
-          <div class="card-body">
-            <h7><b><%= agency.category.humanize %></b></h7>
-            <h4><%= link_to agency.name, agency_path(agency) %></h4>
-            <p><h6><%= agency.address %></h6></p>
-            <h7><%= agency.opening_hours%></h7>
-          </div>
-        </div>
-      </div>
-      <% end %>
+    <div id="load-more" class="row justify-content-center">
+
+        <%= render 'agency' %>
+
     </div>
-    <div class="row justify-content-center mt-4">
-      <%= paginate @agencies %>
+    <div class="row justify-content-center mt-3 pb-4">
+      <div class="col-md-8">
+        <%= link_to_next_page @agencies, 'Load More', id: "load_more_link", class: "btn btn-light btn-block", remote: true  %>
+      </div>
     </div>
   </div>
 </section>
