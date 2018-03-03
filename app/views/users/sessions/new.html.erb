@@ -2,13 +2,11 @@
   <div class="row d-flex justify-content-center">
   <div class="col-md-7">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
       <div class="card mt-5 mb-5">
         <div class="card-header">
           <h2>Log in</h2>
         <div class="card-body">
           <form>
-          
             <div class="form-group">
               <%= f.label :login, "Username" %><br />
               <%= f.text_field :login, autofocus: true, autocomplete: "on", class: "form-control" %>
@@ -35,7 +33,6 @@
         </div>
       </div>
      <% end %>
-  </div>
-
+    </div>
   </div>
 </div
