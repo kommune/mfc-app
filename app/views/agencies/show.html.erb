@@ -1,0 +1,44 @@
+<p>
+  <strong>Username:</strong>
+  <%= @agency.name %>
+</p>
+
+<p>
+  <strong>Office Number:</strong>
+  <%= @agency.office_number %>
+</p>
+
+<p>
+  <strong>Fax Number:</strong>
+  <td><%= @agency.fax_number %></td>
+</p>
+<p>
+  <strong>Address:</strong>
+  <td><%= @agency.address %></td>
+</p>
+<p>
+  <strong>Email:</strong>
+  <td><%= @agency.email %></td>
+</p>
+<p>
+  <strong>Website:</strong>
+  <td><%= @agency.website %></td>
+</p>
+<p>
+  <strong>Opening Hours:</strong>
+  <td><%= @agency.opening_hours %></td>
+</p>
+<p>
+  <strong>Category:</strong>
+  <td><%= @agency.category %></td>
+</p>
+<p>
+  <strong>Criteria:</strong>
+  <td><%= @agency.criteria %></td>
+</p>
+<p>
+  <strong>Description:</strong>
+  <td><%= @agency.description%></td>
+</p>
+
+<%= link_to 'Back Index', agencies_path, class: 'btn btn-info'%> 
