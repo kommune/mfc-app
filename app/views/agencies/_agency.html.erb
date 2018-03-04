@@ -1,0 +1,12 @@
+<% @agencies.each do |agency| %>
+  <div class="col-md-8 mt-3">
+    <div class="card py-1">
+      <div class="card-body">
+        <h7><b><%= agency.category.humanize %></b></h7>
+        <h4><%= link_to agency.name, agency_path(agency) %></h4>
+        <p><h6><%= agency.address %></h6></p>
+        <h7><%= agency.opening_hours%></h7>
+      </div>
+    </div>
+  </div>
+<% end %>
