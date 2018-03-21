@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302122252) do
+ActiveRecord::Schema.define(version: 20180321130303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,37 @@ ActiveRecord::Schema.define(version: 20180302122252) do
     t.string "name", null: false
     t.bigint "office_number"
     t.integer "fax_number"
-    t.string "address", null: false
+    t.string "street_name"
+    t.string "postal_code"
     t.string "email"
     t.string "website"
     t.string "opening_hours"
-    t.integer "category", default: 0
     t.text "criteria"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "agencies_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "agency_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agency_id", "category_id"], name: "index_agencies_categories_on_agency_id_and_category_id", unique: true
+    t.index ["agency_id"], name: "index_agencies_categories_on_agency_id"
+    t.index ["category_id"], name: "index_agencies_categories_on_category_id"
+  end
+
+  create_table "agencyusers", force: :cascade do |t|
+    t.bigint "agency_id"
+    t.string "agency_username", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agency_id"], name: "index_agencyusers_on_agency_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -73,4 +97,7 @@ ActiveRecord::Schema.define(version: 20180302122252) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "agencies_categories", "agencies"
+  add_foreign_key "agencies_categories", "categories"
+  add_foreign_key "agencyusers", "agencies"
 end
