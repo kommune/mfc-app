@@ -1,25 +1,26 @@
 <div class="container">
-  <h1>Categories</h1>
-  <div>
-    <%= link_to 'User Index', admin_users_path, class: "btn btn-primary" %>
-    <%= link_to 'New Agency', new_admin_agency_path, class: "btn btn-info" %>
-    <%= link_to 'New Category', new_admin_category_path, class: "btn btn-warning" %>
-  </div>
-  <br>
-  <div class="form-inline" >
-    <%= form_for [:admin, @category] do |f| %>
-      <div class="form-group">
-        <%= f.text_field :name, placeholder: "Category Name",  class: "form-control mr-2" %>
-        <%= f.submit class: "btn btn-primary mr-2" %>
-      <% if @category.errors.any? %>
-        <%= @category.errors.full_messages.to_sentence %>
-      <% end %>
-      </div>
-    <% end %>
-  </div>
-  <br>
   <div class="row">
     <div class="col-md-12">
+      <h1>Categories</h1>
+      <br>
+      <div>
+        <%= link_to 'Agency', admin_agencies_path %> |
+        <%= link_to 'Category', admin_categories_path %> |
+        <%= link_to 'User', admin_users_path %>
+      </div>
+      <br>
+      <div class="form-inline" >
+        <%= form_for [:admin, @category] do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, placeholder: "Category Name",  class: "form-control mr-2" %>
+            <%= f.submit class: "btn btn-primary mr-2" %>
+          <% if @category.errors.any? %>
+            <%= @category.errors.full_messages.to_sentence %>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+      <br>
       <table class="table table-hover">
         <thead>
           <tr>
