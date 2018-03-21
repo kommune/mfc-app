@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :agencies
     resources :agencyusers
-    resources :categories, except: [:show, :new]
+    resources :categories
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     root to: "agencies#index"
   end
