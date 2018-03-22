@@ -1,7 +1,15 @@
-# require 'csv'
-# CSV.foreach(Rails.root.join("db/seeds_data/agencies.csv"), headers: true) do |row|
-#   Agency.find_or_create_by(name: row[0], office_number: row[1], fax_number: row[2], street_name: row[3], postal_code: row[4], email: row[5], website: row[6], opening_hours: row[7], criteria: row[8], description: row[9])
-# end
+require 'csv'
+CSV.foreach(Rails.root.join("db/seeds_data/agencies.csv"), headers: true) do |row|
+  Agency.find_or_create_by(name: row[0], office_number: row[1], fax_number: row[2], street_name: row[3], postal_code: row[4], email: row[5], website: row[6], opening_hours: row[7], criteria: row[8], description: row[9])
+end
+
+CSV.foreach(Rails.root.join("db/seeds_data/categories.csv"), headers: true) do |row|
+  Category.find_or_create_by(name: row[0])
+end
+
+CSV.foreach(Rails.root.join("db/seeds_data/categories.csv"), headers: true) do |row|
+  Category.find_or_create_by(name: row[0])
+end
 
 Admin.create!(name: "Admin", email: "admin@example.com", password: "123123")
 puts "Default admin created!"
