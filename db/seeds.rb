@@ -7,10 +7,6 @@ CSV.foreach(Rails.root.join("db/seeds_data/categories.csv"), headers: true) do |
   Category.find_or_create_by(name: row[0])
 end
 
-CSV.foreach(Rails.root.join("db/seeds_data/categories.csv"), headers: true) do |row|
-  Category.find_or_create_by(name: row[0])
-end
-
 Admin.create!(name: "Admin", email: "admin@example.com", password: "123123")
 puts "Default admin created!"
 
