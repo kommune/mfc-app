@@ -49,11 +49,11 @@ class Admin::AgenciesController < ApplicationController
   private
 
   def agency_params
-    params.require(:agency).permit(:name, :office_number, :fax_number, :address, :email, :website, :opening_hours, :category, :criteria, :description)
+    params.require(:agency).permit(:name, :office_number, :fax_number, :street_name, :postal_code, :email, :website, :opening_hours, :criteria, :description, category_ids: [])
   end
 
   def set_agency
     @agency = Agency.find(params[:id])
   end
-  
+
 end
