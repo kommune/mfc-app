@@ -2,9 +2,11 @@
   <div class="col-md-8 mt-3">
     <div class="card py-1">
       <div class="card-body">
-        <h7><b><%= agency.category.humanize %></b></h7>
+        <% agency.categories.each do |category| %>
+          <h7><b><%= category.name %></b></h7>
+          <% end %>
         <h4><%= link_to agency.name, agency_path(agency) %></h4>
-        <p><h6><%= agency.address %></h6></p>
+        <p><h6><%= agency.street_name%></h6></p>
         <h7><%= agency.opening_hours%></h7>
       </div>
     </div>
