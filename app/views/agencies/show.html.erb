@@ -14,7 +14,7 @@
 </p>
 <p>
   <strong>Address:</strong>
-  <td><%= @agency.address %></td>
+  <td><%= @agency.street_name %></td>
 </p>
 <p>
   <strong>Email:</strong>
@@ -30,7 +30,7 @@
 </p>
 <p>
   <strong>Category:</strong>
-  <td><%= @agency.category %></td>
+  <td><%= @agency.categories %></td>
 </p>
 <p>
   <strong>Criteria:</strong>
@@ -41,4 +41,4 @@
   <td><%= @agency.description%></td>
 </p>
 
-<%= link_to 'Back Index', agencies_path, class: 'btn btn-info'%> 
+<%= link_to 'Back Index', agencies_path, class: 'btn btn-info'%>

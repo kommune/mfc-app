@@ -14,7 +14,7 @@
 </p>
 <p>
   <strong>Address:</strong>
-  <td><%= @agency.address %></td>
+  <td><%= @agency.street_name %></td>
 </p>
 <p>
   <strong>Email:</strong>
@@ -22,15 +22,19 @@
 </p>
 <p>
   <strong>Website:</strong>
-  <td><%= @agency.website %></td>
+  <p><%= @agency.website %></p>
 </p>
 <p>
   <strong>Opening Hours:</strong>
-  <td><%= @agency.opening_hours %></td>
+  <td></td><%= @agency.opening_hours %></td>
 </p>
 <p>
   <strong>Category:</strong>
-  <td><%= @agency.category %></td>
+
+<p>
+  <% @agency.categories.each do |category| %>
+    <td><%= category.name %></td>
+  <% end %>
 </p>
 <p>
   <strong>Criteria:</strong>
@@ -41,5 +45,5 @@
   <td><%= @agency.description%></td>
 </p>
 
-<%= link_to 'Edit', edit_admin_agency_path(@agency), class: 'btn btn-primary'%> 
-<%= link_to 'Back Index', admin_agencies_path, class: 'btn btn-info'%> 
+<%= link_to 'Edit', edit_admin_agency_path(@agency), class: 'btn btn-primary'%>
+<%= link_to 'Back Index', admin_agencies_path, class: 'btn btn-info'%>

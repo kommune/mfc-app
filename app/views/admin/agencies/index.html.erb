@@ -25,7 +25,9 @@
           <% @agencies.each do |agency| %>
           <tr>
             <td><%= agency.name %></td>
-            <td><%= agency.category.humanize %></td>
+            <% agency.categories.each do |category| %>
+            <td><%= category.name %></td>
+            <% end %>
             <td>
               <%= link_to 'Show', admin_agency_path(agency) %>
               <%= link_to 'Edit', edit_admin_agency_path(agency) %>
