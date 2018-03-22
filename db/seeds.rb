@@ -7,10 +7,6 @@ CSV.foreach(Rails.root.join("db/seeds_data/categories.csv"), headers: true) do |
   Category.find_or_create_by(name: row[0])
 end
 
-CSV.foreach(Rails.root.join("db/seeds_data/categories.csv"), headers: true) do |row|
-  Category.find_or_create_by(name: row[0])
-end
-
 Admin.create!(name: "Admin", email: "admin@example.com", password: "123123")
 puts "Default admin created!"
 
@@ -18,3 +14,23 @@ User.create!(name: "User1", username: "user1", password: "123123", postal_code: 
 User.create!(name: "User2", username: "user2", password: "123123", postal_code: "650175", email: "user2@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22))
 puts "2 users created!"
 
+(1..49).each do |x|
+  Agency.find(x).category_ids = [1,2,6,7,8,10,11,12,13,17]
+end
+
+(50..73).each do |x|
+  Agency.find(x).category_ids = [1,9]
+end
+
+(74..84).each do |x|
+  Agency.find(x).category_ids = [9,10,12]
+end
+
+(85..105).each do |x|
+  Agency.find(x).category_ids = [3]
+end
+
+Agency.find(106).category_ids = [2,7,8]
+Agency.find(107).category_ids = [6,17]
+Agency.find(108).category_ids = [2,5,6,11]
+Agency.find(109).category_ids = [2,7,8,12,13,17]
