@@ -1,5 +1,16 @@
 <h1><%= @message_board.title %></h1>
 
-<div id='messages'>
-  <%= @message_board.messages %>
+<div id='messages' data-message-board-id="<%= @message_board.id %>">
+  <%= render @message_board.messages %>
+  <%= link_to "Delete this message board: #{@message_board.title}", message_board_path(@message_board, @user), method: :delete %> 
 </div>
+
+<%= form_for @message, url: '#' do |f| %>
+  <div>
+    <%= f.label :body, 'Your message:' %>
+    <%= f.text_area :body, class:'form-control' %>
+    <small class="text-muted">From 2 to 1000 characters</small>
+  </div>
+
+  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+<% end %>
