@@ -22,6 +22,8 @@ gem 'bootstrap', '~> 4.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'devise', '~> 4.4', '>= 4.4.1'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'mysql2',          '~> 0.3',    :platform => :ruby
+gem 'thinking-sphinx', '~> 3.4.2'
 gem 'rubocop', '~> 0.54.0'
 
 # Use CoffeeScript for .coffee assets and views
