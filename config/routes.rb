@@ -5,12 +5,13 @@ Rails.application.routes.draw do
 
   resources :agencies, only: [:index, :show] do
     get 'home', on: :collection
+    get 'search', on: :collection
   end
   resources :categories, only: [:show]
 
   resources :users, only: [:edit, :update]
 
-  resources :message_boards, only: [:new, :create, :show, :index]
+  resources :message_boards, only: [:new, :create, :show, :index, :destroy]
 
   root to: "agencies#home"
 
@@ -21,5 +22,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     root to: "agencies#index"
   end
+
+mount ActionCable.server => '/cable'
 
 end
