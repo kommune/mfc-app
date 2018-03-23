@@ -14,6 +14,10 @@ module Accessible
       flash.clear
       # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
       redirect_to(agencies_path) && return
+    elsif current_agencyuser
+      flash.clear
+      # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
+      redirect_to(agencies_path) && return
     end
   end
 end

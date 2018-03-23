@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, 
+  devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, authentication_keys: [:login]
 
   validates :name, presence: true
@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validates :birth_date, presence: true
   validates :postal_code, numericality: { only_integer: true }, length: { is: 6 }
+  validate :birth
 
   enum gender: [ :male, :female ]
   enum marital_status: [ :single, :married, :divorced, :widowed ]
@@ -19,6 +20,11 @@ class User < ApplicationRecord
 
   has_many :message_boards, dependent: :destroy
   has_many :messages, dependent: :destroy
+
+  def birth
+    errors.add(:birthday, "is incorrect") if
+    birthday.present? && birthday > Time.zone.today
+  end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
