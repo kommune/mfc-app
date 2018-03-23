@@ -2,10 +2,10 @@ class Admin::AgencyusersController < ApplicationController
 
   layout 'admin'
 
-  before_action :set_user, only:  [:show, :edit, :update, :destroy]
+  before_action :set_agencyuser, only:  [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @agencyusers = Agencyuser.all
   end
 
   def show
@@ -15,29 +15,29 @@ class Admin::AgencyusersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      flash[:notice] = "User was successfully updated"
-      redirect_to admin_user_path(@user)
+    if @agencyuser.update(agencyuser_params)
+      flash[:notice] = "Agencyuser was successfully updated"
+      redirect_to admin_agencyuser_path(@agencyuser)
     else
-      flash.now[:alert] = "User was failed to update"
+      flash.now[:alert] = "Agencyuser was failed to update"
       render :edit
     end
   end
 
   def destroy
-    @user.destroy
-    flash[:alert] = "User was deleted"
-    redirect_to admin_users_path
+    @agencyuser.destroy
+    flash[:alert] = "Agencyuser was deleted"
+    redirect_to admin_agencyusers_path
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :postal_code, :birth_date, :gender, :marital_status, :children)
+  def agencyuser_params
+    params.require(:agencyuser).permit(:username, :email, :agency_id)
   end
 
-  def set_user
-    @user = User.find(params[:id])
+  def set_agencyuser
+    @agencyuser = Agencyuser.find(params[:id])
   end
 
 end
