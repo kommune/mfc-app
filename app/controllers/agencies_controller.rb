@@ -8,4 +8,12 @@ class AgenciesController < ApplicationController
     @agency = Agency.find(params[:id])
   end
 
+  def search
+    if params[:search]
+      @agencies = Agency.search ThinkingSphinx::Query.escape(params[:search])
+    else
+      @agencies = Agency.all
+    end
+  end
+
 end
