@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+body {
+    font-family: "Roboto", sans-serif;
+}
+
 .nav-right {
   display: flex;
   flex-direction: row;
@@ -96,3 +100,58 @@
   justify-content: center;
   align-items: center;
 }
+
+.content-box {
+    padding: 60px 0 60px 0;
+}
+
+.content-title h3 {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin: 30px 0 30px 0;
+}
+
+.content-title-white h3 {
+    color: #fff;
+}
+
+.content-title-underline {
+    width: 30px;
+    height: 3px;
+    background-color: #34c6d3;
+    margin: 0 auto 30px auto;
+}
+
+.categories-item {
+    padding: 20px 0 20px 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.categories-item-icon img {
+    color: #34c6d3;
+    float: left;
+    padding: 15px;
+    margin-right: 5px;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+}
+
+.categories-item:hover{
+    color: #fff;
+    background-color: #B8DDD4;
+}
+
+.categories-item-title h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 23px 0 10px 0;
+}
+
+.row.services {
+  margin-right: -23px;
+  margin-left: 54px;
+}
+
