@@ -1,5 +1,7 @@
 class Agency < ApplicationRecord
 
+  after_save ThinkingSphinx::RealTime.callback_for(:agency)
+
   validates :name, presence: true
 
   enum area: [ :north, :south, :east, :west ]

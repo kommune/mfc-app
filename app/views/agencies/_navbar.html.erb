@@ -7,9 +7,6 @@
         <li class="nav-item">
           <%= link_to('Home', home_agencies_path, class: 'nav-link') %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Search</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
@@ -36,6 +33,14 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <div class="form-inline">
+            <%= form_tag search_agencies_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search" %>
+            <% end %>
+          </div>
         </li>
       </ul>
       <div class="nav-right">
