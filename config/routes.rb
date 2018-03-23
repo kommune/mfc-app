@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
 
-  resources :agencies, only: [:index, :show]
+  resources :agencies, only: [:index, :show] do
+    get 'home', on: :collection
+  end
 
   resources :users, only: [:edit, :update]
 
@@ -14,6 +16,12 @@ Rails.application.routes.draw do
   end
 
   root to: "agencies#index"
+
+  root to: "agencies#home"
+
+  namespace :agency do
+    resources :messageboards
+  end
 
   namespace :admin do
     resources :agencies
