@@ -12,12 +12,6 @@ Rails.application.routes.draw do
 
   resources :message_boards, only: [:new, :create, :show, :index]
 
-  namespace :agency do
-    resources :message_boards, only: [:new, :create, :show, :index]
-  end
-
-  root to: "agencies#index"
-
   root to: "agencies#home"
 
   namespace :agency do
