@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   root to: "agencies#home"
 
+  namespace :agency do
+    resources :messageboards
+  end
+
   namespace :admin do
     resources :agencies
     resources :agencyusers
