@@ -5,6 +5,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
+          <%= link_to('Home', home_agencies_path, class: 'nav-link') %>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">Search</a>
         </li>
         <li class="nav-item dropdown">
@@ -12,28 +15,38 @@
             Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Financial</a>
-            <a class="dropdown-item" href="#">Family</a>
-            <a class="dropdown-item" href="#">Food Rations</a>
-            <a class="dropdown-item" href="#">Donations</a>
-            <a class="dropdown-item" href="#">Health</a>
-            <a class="dropdown-item" href="#">Elderly</a>
-            <a class="dropdown-item" href="#">Children</a>
-            <a class="dropdown-item" href="#">Teens</a>
-            <a class="dropdown-item" href="#">Employment</a>
-            <a class="dropdown-item" href="#">Homeless</a>
-            <a class="dropdown-item" href="#">Mental Health</a>
-            <a class="dropdown-item" href="#">Addictions</a>
-            <a class="dropdown-item" href="#">Counselling</a>
-            <a class="dropdown-item" href="#">Legal</a>
-            <a class="dropdown-item" href="#">Special Needs</a>
-            <a class="dropdown-item" href="#">Disability</a>
-            <a class="dropdown-item" href="#">Miscellaneous</a>
+            <%= link_to('Financial', category_path(1), class: 'dropdown-item') %>
+            <%= link_to('Family', category_path(2), class: 'dropdown-item') %>
+            <%= link_to('Food Rations', category_path(3), class: 'dropdown-item') %>
+            <%= link_to('Donations', category_path(4), class: 'dropdown-item') %>
+            <%= link_to('Health', category_path(5), class: 'dropdown-item') %>
+            <%= link_to('Elderly', category_path(6), class: 'dropdown-item') %>
+            <%= link_to('Children', category_path(7), class: 'dropdown-item') %>
+            <%= link_to('Teens', category_path(8), class: 'dropdown-item') %>
+            <%= link_to('Employment', category_path(9), class: 'dropdown-item') %>
+            <%= link_to('Accommodation/Shelter', category_path(10), class: 'dropdown-item') %>
+            <%= link_to('Mental Health', category_path(11), class: 'dropdown-item') %>
+            <%= link_to('Addictions', category_path(12), class: 'dropdown-item') %>
+            <%= link_to('Counselling', category_path(13), class: 'dropdown-item') %>
+            <%= link_to('Legal', category_path(14), class: 'dropdown-item') %>
+            <%= link_to('Special Needs', category_path(15), class: 'dropdown-item') %>
+            <%= link_to('Disability', category_path(16), class: 'dropdown-item') %>
+            <%= link_to('Miscellaneous', category_path(17), class: 'dropdown-item') %>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact Us</a>
         </li>
       </ul>
+      <div class="nav-right">
+        <% if current_user %>
+          <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>&nbsp;&nbsp;
+          <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>&nbsp;&nbsp;
+          <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %></li>
+        <% else %>
+          <li class="navbar-nav nav-item"><%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %></li> 
+          <li class="navbar-nav nav-item"><%= link_to('Log in', new_user_session_path, class: 'nav-link') %></li>
+        <% end %>
+      </div>
     </div>
   </nav>
