@@ -43,9 +43,19 @@
           <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>&nbsp;&nbsp;
           <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>&nbsp;&nbsp;
           <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %></li>
+        <% elsif current_agencyuser %>
+          <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_agencyuser_session_path, method: :delete, class: 'nav-link') %></li>
         <% else %>
-          <li class="navbar-nav nav-item"><%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %></li> 
-          <li class="navbar-nav nav-item"><%= link_to('Log in', new_user_session_path, class: 'nav-link') %></li>
+          <li class="nav-item navbar-nav dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Log in
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to('User', new_user_session_path, class: 'dropdown-item') %>
+              <%= link_to('Agency', new_agencyuser_session_path, class: 'dropdown-item') %>
+            </div>
+          </li>
+          <li class="navbar-nav nav-item"><%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %></li>
         <% end %>
       </div>
     </div>
