@@ -75,6 +75,11 @@
           </div>
 
           <div class="form-group">
+            <%= f.label :area, "Gender" %>
+            <%= f.select :area, Agency.area.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
             <%= f.label :categories, "Categories: " %>
             <br>
             <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |cb| %>
