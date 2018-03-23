@@ -10,19 +10,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
 
-  resources :message_boards, only: [:new, :create, :show, :index]
-
-  namespace :agency do
-    resources :message_boards, only: [:new, :create, :show, :index]
-  end
-
-  root to: "agencies#index"
+  resources :message_boards, only: [:new, :create, :show, :index, :destroy]
 
   root to: "agencies#home"
-
-  namespace :agency do
-    resources :messageboards
-  end
 
   namespace :admin do
     resources :agencies
@@ -32,6 +22,6 @@ Rails.application.routes.draw do
     root to: "agencies#index"
   end
 
-
+mount ActionCable.server => '/cable'
 
 end
