@@ -1,0 +1,7 @@
+<h1>Message Board</h1>
+
+<p class='lead'><%= link_to 'New Message Board', new_message_board_path, class: 'btn btn-primary' %></p>
+
+<ul>
+  <%= render @message_boards %>
+</ul>

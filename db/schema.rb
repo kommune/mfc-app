@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321133534) do
+ActiveRecord::Schema.define(version: 20180322083331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20180321133534) do
     t.string "name", null: false
     t.bigint "office_number"
     t.integer "fax_number"
-    t.string "street_name"
-    t.string "postal_code"
+    t.string "address", null: false
     t.string "email"
     t.string "website"
     t.string "opening_hours"
+    t.integer "category", default: 0
     t.text "criteria"
     t.text "description"
     t.datetime "created_at", null: false
@@ -84,6 +84,26 @@ ActiveRecord::Schema.define(version: 20180321133534) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "message_boards", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "agencyuser_id"
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agencyuser_id"], name: "index_message_boards_on_agencyuser_id"
+    t.index ["user_id"], name: "index_message_boards_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id"
+    t.bigint "message_board_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_board_id"], name: "index_messages_on_message_board_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -112,4 +132,8 @@ ActiveRecord::Schema.define(version: 20180321133534) do
   add_foreign_key "agencies_categories", "agencies"
   add_foreign_key "agencies_categories", "categories"
   add_foreign_key "agencyusers", "agencies"
+  add_foreign_key "message_boards", "agencyusers"
+  add_foreign_key "message_boards", "users"
+  add_foreign_key "messages", "message_boards"
+  add_foreign_key "messages", "users"
 end

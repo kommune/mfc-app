@@ -17,6 +17,9 @@ class User < ApplicationRecord
   enum marital_status: [ :single, :married, :divorced, :widowed ]
   enum children: [ :no, :yes ]
 
+  has_many :message_boards, dependent: :destroy
+  has_many :messages, dependent: :destroy
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
