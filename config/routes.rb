@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :agencyusers, path: 'agencyusers', controllers: { sessions: "agencyusers/sessions" }
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }
-  devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations" }
 
   resources :agencies, only: [:index, :show] do
     get 'home', on: :collection
