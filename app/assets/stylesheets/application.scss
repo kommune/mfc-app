@@ -12,6 +12,7 @@ body {
 .card-body > h7 {
   color: #767676;
 }
+
 .card-body > h4 > a{
   color: #4d13af;
 }
@@ -23,10 +24,6 @@ body {
   margin-top: 50px;
   background-color: #A6D9CE;
   min-height: 100vh;
-}
-
-.card {
-  background-color: #f8f9fa;
 }
 
 .home-container {
@@ -153,5 +150,15 @@ body {
 .row.services {
   margin-right: -23px;
   margin-left: 54px;
+}
+
+.background {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+  height: 100vh;
+}
+
+.margin-card {
+  margin-top: 100px;
 }
 

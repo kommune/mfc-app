@@ -3,3 +3,13 @@
 body {
     font-family: "Lato", sans-serif;
 }
+
+.background {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+  height: 100vh;
+}
+
+.margin-card {
+  margin-top: 100px;
+}
