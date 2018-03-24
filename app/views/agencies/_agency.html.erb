@@ -1,10 +1,7 @@
 <% @agencies.each do |agency| %>
-  <div class="col-md-8 mt-3">
+  <div class="col-md-7 mt-3">
     <div class="card py-1">
       <div class="card-body">
-        <% agency.categories.each do |category| %>
-          <h7><b><%= category.name %></b></h7>
-          <% end %>
         <h4><%= link_to agency.name, agency_path(agency) %></h4>
         <p><h6><%= agency.street_name%></h6></p>
         <h7><%= agency.opening_hours%></h7>
