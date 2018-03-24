@@ -75,8 +75,11 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :area, "Gender" %>
-            <%= f.select :area, Agency.area.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
+            <%= f.label :area, "Area" %><br>
+              <% Agency.areas.keys.each do |area| %>
+                <%= f.radio_button :area, area %>
+                <%= f.label area.to_sym %>
+              <% end %>
           </div>
 
           <div class="form-group">

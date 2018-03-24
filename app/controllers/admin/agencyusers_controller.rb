@@ -8,6 +8,10 @@ class Admin::AgencyusersController < ApplicationController
     @agencyusers = Agencyuser.all
   end
 
+  def new
+    @agencyuser = Agencyuser.new
+  end
+
   def show
   end
 

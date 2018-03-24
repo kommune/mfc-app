@@ -5,7 +5,7 @@ class CreateContacts < ActiveRecord::Migration[5.1]
       t.string :phone_number
       t.string :email
       t.string :feedback
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps
     end
