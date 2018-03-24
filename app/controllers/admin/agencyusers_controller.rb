@@ -8,6 +8,10 @@ class Admin::AgencyusersController < ApplicationController
     @agencyusers = Agencyuser.all
   end
 
+  def new
+    @agencyuser = Agencyuser.new
+  end
+
   def show
   end
 
@@ -17,9 +21,9 @@ class Admin::AgencyusersController < ApplicationController
   def update
     if @agencyuser.update(agencyuser_params)
       flash[:notice] = "Agencyuser was successfully updated"
-      redirect_to admin_agencyuser_path(@agencyuser)
+      redirect_to admin_agencyusers_path
     else
-      flash.now[:alert] = "Agencyuser was failed to update"
+      flash[:alert] = "Agencyuser was failed to update"
       render :edit
     end
   end
