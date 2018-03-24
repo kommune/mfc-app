@@ -21,7 +21,7 @@ class Admin::AgencyusersController < ApplicationController
   def update
     if @agencyuser.update(agencyuser_params)
       flash[:notice] = "Agencyuser was successfully updated"
-      redirect_to admin_agencyuser_path(@agencyuser)
+      redirect_to admin_agencyusers_path
     else
       flash[:alert] = "Agencyuser was failed to update"
       render :edit

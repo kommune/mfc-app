@@ -48,18 +48,27 @@
             </div>
 
             <div class="form-group">
-              <%= f.label :gender, "Gender" %>
-              <%= f.select :gender, User.genders.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
+              <%= f.label :gender, "Gender" %>&nbsp&nbsp
+              <% User.genders.keys.each do |gender| %>
+                <%= f.radio_button :gender, gender %>
+                <%= f.label gender.to_sym %>&nbsp&nbsp
+              <% end %>
             </div>
 
             <div class="form-group">
-              <%= f.label :marital_status, "Marital Status" %>
-              <%= f.select :marital_status, User.marital_statuses.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
+              <%= f.label :marital_status, "Marital Status" %>&nbsp&nbsp
+              <% User.marital_statuses.keys.each do |marital_status| %>
+                <%= f.radio_button :marital_status, marital_status %>
+                <%= f.label marital_status.to_sym %>&nbsp&nbsp
+              <% end %>
             </div>
 
             <div class="form-group">
-              <%= f.label :children, "Children" %>
-              <%= f.select :children, User.children.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
+              <%= f.label :children, "Children" %>&nbsp&nbsp
+              <% User.children.keys.each do |children| %>
+                <%= f.radio_button :children, children %>
+                <%= f.label children.to_sym %>&nbsp&nbsp
+              <% end %>
             </div>
 
             <div class="form-group">
