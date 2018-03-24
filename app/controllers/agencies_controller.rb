@@ -16,4 +16,8 @@ class AgenciesController < ApplicationController
     end
   end
 
+  def home
+    @contact = Contact.new
+  end
+
 end

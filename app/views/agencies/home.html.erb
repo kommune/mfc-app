@@ -6,100 +6,242 @@
     <br />
   </div>
 
-  <div class="container container-categories">
-    <div class="home-row">
-      <%= image_tag("logos/financial.svg", alt: "Financial Assistance", size: "60x60") %>
-      <h3>Financial Assistance</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/family.svg", alt: "Family Services", size: "60x60") %>
-      <h3>Family Services</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/food_rations.svg", alt: "Food Rations", size: "60x60") %>
-      <h3>Food Rations</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/donations.svg", alt: "Donations of Items", size: "60x60") %>
-      <h3>Donation of Items</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/health.svg", alt: "Health/Hospitals", size: "60x60") %>
-      <h3>Health/Hospitals</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/mental_health.svg", alt: "Mental Health", size: "60x60") %>
-      <h3>Mental Health</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/elderly.svg", alt: "Elder Services", size: "60x60") %>
-      <h3>Elder Services</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/children.svg", alt: "Children Services", size: "60x60") %>
-      <h3>Children Services</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/teens.svg", alt: "Teenage Services", size: "60x60") %>
-      <h3>Teenage Services</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/unemployment.svg", alt: "Skills & Employment", size: "60x60") %>
-      <h3>Skills & Employment</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/homeless.svg", alt: "Homeless Support", size: "60x60") %>
-      <h3>Homeless Support</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/addictions.svg", alt: "Addictions Resources", size: "60x60") %>
-      <h3>Addictions Resources</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/counselling.svg", alt: "Counselling", size: "60x60") %>
-      <h3>Counselling</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/legal.svg", alt: "Legal & Advocacy", size: "60x60") %>
-      <h3>Legal & Advocacy</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/special_needs.svg", alt: "Special Needs", size: "60x60") %>
-      <h3>Special Needs</h3>
-    </div>
-    <div class="home-row">
-      <%= image_tag("logos/disability.svg", alt: "Disability Support", size: "60x60") %>
-      <h3>Disability Support</h3>
-    </div>
-    <div class="home-row">
-      <h3>Miscellaneous</h3>
+  <div class="content-title">
+    <h3> Categories </h3>
+    <div class="content-title-underline"></div>
+  </div>
+  <div class="container">
+    <div class="row services">
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(1), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/financial.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Financial Assistance</h3>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(2), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/family.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Family Services</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(3), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/food_rations.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Food Rations</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(4), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/donations.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Donation of Items</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(5), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/health.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Health/Hospitals </h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(6), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/mental_health.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Mental Health</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(7), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/elderly.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Elder Services</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(8), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/children.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Children Services</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(9), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/teens.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Teenage Services</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(10), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/unemployment.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3> Skills & Employment</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(11), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/homeless.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3>Homeless Support</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(12), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/addictions.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3>Addictions Resources</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(13), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/counselling.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3>Counselling</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(14), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/legal.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3>Legal & Advocacy</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(15), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/special_needs.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3>Special Needs</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(16), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/disability.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3>Disability Support</h3>
+            </div>
+          </div>
+         <% end %>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <%= link_to category_path(17), style: 'text-decoration:none; color:black' do %>
+          <div class="categories-item">
+            <div class="categories-item-icon">
+              <%= image_tag("logos/counselling.svg", alt: "Financial Assistance", align: "left") %>
+            </div>
+            <div class="categories-item-title">
+              <h3>Miscellaneous</h3>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
-  <div class="container-fluid container-footer">
-    <div class="home-row">
-      <form>
-        <div class="form-group">
-          <label for="FormControlInput1">Name</label>
-          <input type="name" class="form-control" id="FormControlInput1">
-        </div>
-        <div class="form-group">
-          <label for="FormControlInput2">Contact number</label>
-          <input type="contact" class="form-control" id="FormControlInput2">
-        </div>
-        <div class="form-group">
-          <label for="FormControlInput3">Email address</label>
-          <input type="email" class="form-control" id="FormControlInput3" placeholder="name@example.com">
-        </div>
-        <div class="form-group">
-          <label for="FormControlTextarea1">Feedback/Comments</label>
-          <textarea class="form-control" id="FormControlTextarea4" rows="3"></textarea>
-        </div>
-        <div class="col-xl-3 text-center">
-          <button class="btn btn-success" type="submit">Submit form</button>
-        </div>
-      </form>
-    
+  <section id="contact">
+    <div class="container-fluid container-footer">
+      <div class="col-md-5"><br>
+        <h3 class="text-center">Contact Us</h3>
+        <br>
+        <%= form_for [@contact], url: contacts_path, method: :post do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :phone_number, placeholder: "Contact Number", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :email, placeholder: "Email Address", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :feedback, class: "form-control", placeholder: "Feedback/Comments", rows: "5" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Submit Form", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
+  </section>
 </div>

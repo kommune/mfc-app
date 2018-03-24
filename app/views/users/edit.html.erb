@@ -16,64 +16,72 @@
 
 <div class="container ">
   <div class="row d-flex justify-content-center">
-  <div class="col-md-7">
-    <%= form_for @user do |f| %>
-    <div class="card mt-3 mb-3">
-      <div class="card-header">
-        <h4>User Profile</h4>
-      <div class="card-body">
-        <form>
-        
-          <div class="form-group">
-            <%= f.label :username, "Username" %>
-            <%= f.text_field :username, class: "form-control", disabled: true %>
-          </div>
+    <div class="col-md-7">
+      <%= form_for @user do |f| %>
+      <div class="card mt-3 mb-3">
+        <div class="card-header">
+          <h4>User Profile</h4>
+        <div class="card-body">
+          <form>
 
-          <div class="form-group">
-            <%= f.label :name, "Name" %>
-            <%= f.text_field :name, class: "form-control" %>
-          </div>
-          
-          <div class="form-group">
-            <%= f.label :email, "E-mail" %>
-            <%= f.text_field :email, class: "form-control" %>
-          </div>
+            <div class="form-group">
+              <%= f.label :username, "Username" %>
+              <%= f.text_field :username, class: "form-control", disabled: true %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :postal_code, "Postal Code" %>
-            <%= f.text_field :postal_code, class: "form-control" %>
-          </div>
+            <div class="form-group">
+              <%= f.label :name, "Name" %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :birth_date, "Date of Birth" %>
-            <%= f.date_select :birth_date, start_year: 1920, end_year: Date.today.year, order: [:day, :month, :year], default: Date.today, class: "form-control" %>
-          </div>
+            <div class="form-group">
+              <%= f.label :email, "E-mail" %>
+              <%= f.text_field :email, class: "form-control" %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :gender, "Gender" %>
-            <%= f.select :gender, User.genders.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
-          </div>
+            <div class="form-group">
+              <%= f.label :postal_code, "Postal Code" %>
+              <%= f.text_field :postal_code, class: "form-control" %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :marital_status, "Marital Status" %>
-            <%= f.select :marital_status, User.marital_statuses.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
-          </div>
+            <div class="form-group">
+              <%= f.label :birth_date, "Date of Birth" %>
+              <%= f.date_select :birth_date, start_year: 1920, end_year: Date.today.year, order: [:day, :month, :year], default: Date.today, class: "form-control" %>
+            </div>
 
-          <div class="form-group">
-            <%= f.label :children, "Children" %>
-            <%= f.select :children, User.children.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
-          </div>
+            <div class="form-group">
+              <%= f.label :gender, "Gender" %>&nbsp&nbsp
+              <% User.genders.keys.each do |gender| %>
+                <%= f.radio_button :gender, gender %>
+                <%= f.label gender.to_sym %>&nbsp&nbsp
+              <% end %>
+            </div>
 
-          <div class="form-group">
-            <%= link_to 'Back', agencies_path, class: 'btn btn-info'%> 
-            <%= f.submit "Update Profile", class: "btn btn-primary" %>
-          </div>
-        </form>
+            <div class="form-group">
+              <%= f.label :marital_status, "Marital Status" %>&nbsp&nbsp
+              <% User.marital_statuses.keys.each do |marital_status| %>
+                <%= f.radio_button :marital_status, marital_status %>
+                <%= f.label marital_status.to_sym %>&nbsp&nbsp
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :children, "Children" %>&nbsp&nbsp
+              <% User.children.keys.each do |children| %>
+                <%= f.radio_button :children, children %>
+                <%= f.label children.to_sym %>&nbsp&nbsp
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= link_to 'Back', agencies_path, class: 'btn btn-info'%>
+              <%= f.submit "Update Profile", class: "btn btn-primary" %>
+            </div>
+          </form>
+        </div>
+        </div>
       </div>
-      </div>
+      <% end %>
     </div>
-     <% end %>
-  </div>
-
   </div>
 </div

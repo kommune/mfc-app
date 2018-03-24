@@ -32,18 +32,18 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
+          <a class="nav-link" href="#contact">Contact Us</a>
         </li>
-        <li class="nav-item">
+
           <div class="form-inline">
             <%= form_tag search_agencies_path, :method => 'get' do %>
-              <%= text_field_tag :search, params[:search] %>
+              <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2' %>
               <%= submit_tag "Search" %>
             <% end %>
           </div>
-        </li>
       </ul>
-      <div class="nav-right">
+      <div class="navbar-nav flex-row ml-md-auto d-md-flex">
+      <ul class="navbar-nav mr-auto">
         <% if current_user %>
           <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>&nbsp;&nbsp;
           <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>&nbsp;&nbsp;
@@ -62,6 +62,7 @@
           </li>
           <li class="navbar-nav nav-item"><%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %></li>
         <% end %>
+        </ul>
       </div>
     </div>
   </nav>
