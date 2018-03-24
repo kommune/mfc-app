@@ -1,0 +1,45 @@
+<div class="container ">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+      <div class="card mt-3 mb-3">
+        <div class="card-header">
+          <h4>Feedback/Comment</h4>
+        <div class="card-body">
+          <p>
+            <strong>Name:</strong>
+            <td><%= @contact.name%></td>
+          </p>
+          <p>
+            <strong>Contact Number:</strong>
+            <td><%= @contact.phone_number%></td>
+          </p>
+          <p>
+            <strong>E-mail:</strong>
+            <td><%= @contact.email%></td>
+          </p>
+          <p>
+            <strong>Feedback:</strong>
+            <td><%= @contact.feedback%></td>
+          </p>
+          <%= form_for [:admin, @contact] do |f| %>
+          <form>
+            <div class="form-group">
+              <strong><%= f.label :status, "Status:" %>&nbsp&nbsp</strong>
+              <% Contact.statuses.keys.each do |status| %>
+                <%= f.radio_button :status, status %>
+                <%= f.label status.to_sym %>&nbsp&nbsp
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= link_to 'Back Index', admin_contacts_path, class: 'btn btn-info'%>
+              <%= f.submit 'Update Status', class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

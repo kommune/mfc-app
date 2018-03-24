@@ -6,8 +6,13 @@
       <div>
         <%= link_to 'Agency', admin_agencies_path %> |
         <%= link_to 'Category', admin_categories_path %> |
+        <%= link_to 'Feedback', admin_contacts_path %> |
         <%= link_to 'User', admin_users_path %> |
         <%= link_to 'Agency User', admin_agencyusers_path %>
+      </div>
+      <br>
+      <div>
+        <%= link_to 'New Agency User', new_admin_agencyuser_path, class: "btn btn-primary" %>
       </div>
       <br>
       <table class="table table-hover">
@@ -26,7 +31,6 @@
             <td><%= agencyuser.agency.name %></td>
             <td><%= agencyuser.email %></td>
             <td>
-              <%= link_to 'New', edit_admin_agencyuser_path(agencyuser) %>
               <%= link_to 'Edit', edit_admin_agencyuser_path(agencyuser) %>
             </td>
           </tr>

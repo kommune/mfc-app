@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20180323234816) do
     t.string "phone_number"
     t.string "email"
     t.string "feedback"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
