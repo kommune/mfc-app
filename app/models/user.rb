@@ -22,8 +22,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   def birth
-    errors.add(:birthday, "is incorrect") if
-    birthday.present? && birthday > Time.zone.today
+    errors.add(:birth_date, "is incorrect") if
+    birth_date.present? && birth_date > Time.zone.today
   end
 
   def self.find_for_database_authentication(warden_conditions)

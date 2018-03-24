@@ -220,99 +220,28 @@
   </div>
 
   <section id="contact">
-
-
-
-
     <div class="container-fluid container-footer">
-
-        <div class="row d-flex justify-content-center">
-  <div class="col-md-7">
-    <%= form_for @agency do |f| %>
-    <div class="card mt-5">
-      <div class="card-header">
-        <h4>Forms</h4>
-      <div class="card-body">
-        <form>
-
+      <div class="col-md-5"><br>
+        <h3 class="text-center">Contact Us</h3>
+        <br>
+        <%= form_for [@contact], url: contacts_path, method: :post do |f| %>
           <div class="form-group">
-            <%= f.label :name, "Name" %>
-            <%= f.text_field :name, class: "form-control" %>
+            <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
           </div>
-
           <div class="form-group">
-            <%= f.label :office_number, "Office Number" %>
-            <%= f.text_field :office_number, class: "form-control" %>
+            <%= f.text_field :phone_number, placeholder: "Contact Number", class: "form-control" %>
           </div>
-
           <div class="form-group">
-            <%= f.label :fax_number, "Fax Number" %>
-            <%= f.text_field :fax_number, class: "form-control" %>
+            <%= f.text_field :email, placeholder: "Email Address", class: "form-control" %>
           </div>
-
           <div class="form-group">
-            <%= f.label :street_name, "Address" %>
-            <%= f.text_field :street_name, class: "form-control" %>
+            <%= f.text_area :feedback, class: "form-control", placeholder: "Feedback/Comments", rows: "5" %>
           </div>
-
           <div class="form-group">
-            <%= f.label :postal_code, "Address" %>
-            <%= f.text_field :postal_code, class: "form-control" %>
+            <%= f.submit "Submit Form", class: "btn btn-primary" %>
           </div>
-
-          <div class="form-group">
-            <%= f.label :email, "E-mail" %>
-            <%= f.text_field :email, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :website, "Website" %>
-            <%= f.text_field :website, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :opening_hours, "Opening Hours" %>
-            <%= f.text_field :opening_hours, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :criteria, "Criteria" %>
-            <%= f.text_field :criteria, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :description, "Description" %>
-            <%= f.text_field :description, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :area, "Gender" %>
-            <%= f.select :area, Agency.area.keys.map{ |w| [w.humanize, w] }, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :categories, "Categories: " %>
-            <br>
-            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |cb| %>
-              <%= cb.label  do %>
-                <%= cb.check_box %>
-                <%= cb.text %>
-              <% end %>
-            <% end %>
-          </div>
-
-          <div class="form-group">
-            <%= f.submit class: "btn btn-primary" %>
-          </div>
-        </form>
+        <% end %>
       </div>
-      </div>
-    </div>
-     <% end %>
-  </div>
-
-  </div>
-
     </div>
   </section>
 </div>
