@@ -78,7 +78,7 @@
             <%= f.label :area, "Area" %><br>
               <% Agency.areas.keys.each do |area| %>
                 <%= f.radio_button :area, area %>
-                <%= f.label area.to_sym %>
+                <%= f.label area.to_sym %>&nbsp&nbsp
               <% end %>
           </div>
 
