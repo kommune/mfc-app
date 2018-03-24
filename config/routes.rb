@@ -13,12 +13,15 @@ Rails.application.routes.draw do
 
   resources :message_boards, only: [:new, :create, :show, :index, :destroy]
 
+  resources :contacts, only: [:create]
+
   root to: "agencies#home"
 
   namespace :admin do
     resources :agencies
     resources :agencyusers
     resources :categories
+    resources :contacts, only: [:index, :show, :destroy]
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     root to: "agencies#index"
   end

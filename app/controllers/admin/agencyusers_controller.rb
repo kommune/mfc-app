@@ -19,7 +19,7 @@ class Admin::AgencyusersController < ApplicationController
       flash[:notice] = "Agencyuser was successfully updated"
       redirect_to admin_agencyuser_path(@agencyuser)
     else
-      flash.now[:alert] = "Agencyuser was failed to update"
+      flash[:alert] = "Agencyuser was failed to update"
       render :edit
     end
   end
