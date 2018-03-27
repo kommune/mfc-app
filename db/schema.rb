@@ -108,9 +108,11 @@ ActiveRecord::Schema.define(version: 20180327022034) do
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.bigint "user_id"
+    t.bigint "agencyuser_id"
     t.bigint "message_board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["agencyuser_id"], name: "index_messages_on_agencyuser_id"
     t.index ["message_board_id"], name: "index_messages_on_message_board_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -153,6 +155,7 @@ ActiveRecord::Schema.define(version: 20180327022034) do
   add_foreign_key "agencyusers", "agencies"
   add_foreign_key "message_boards", "agencyusers"
   add_foreign_key "message_boards", "users"
+  add_foreign_key "messages", "agencyusers"
   add_foreign_key "messages", "message_boards"
   add_foreign_key "messages", "users"
 end
