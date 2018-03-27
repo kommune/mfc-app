@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180327022034) do
   create_table "message_boards", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "agencyuser_id"
-    t.string "title", null: false
+    t.string "identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["agencyuser_id"], name: "index_message_boards_on_agencyuser_id"
