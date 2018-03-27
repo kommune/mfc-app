@@ -1,7 +1,7 @@
 class Agency < ApplicationRecord
 
-  after_save ThinkingSphinx::RealTime.callback_for(:agency)
-
+  searchkick _all: false, default_fields: [:name, :street_name, :postal_code, :area, :criteria, :description]
+  
   validates :name, presence: true
 
   enum area: [ :north, :south, :east, :west, :central, :all_areas ]
