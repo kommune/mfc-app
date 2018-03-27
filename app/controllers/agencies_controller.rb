@@ -10,7 +10,8 @@ class AgenciesController < ApplicationController
 
   def search
     if params[:search]
-      @agencies = Agency.search ThinkingSphinx::Query.escape(params[:search])
+      # @agencies = Agency.search ThinkingSphinx::Query.escape(params[:search])
+      @agencies = Agency.search(params[:search], aggs: [:area], smart_aggs: true, page: params[:page], per_page: 5)
     else
       @agencies = Agency.all
     end
