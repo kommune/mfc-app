@@ -1,7 +1,28 @@
-<h1>Message Board</h1>
-
-<p class='lead'><%= link_to 'New Message Board', new_message_board_path, class: 'btn btn-primary' %></p>
-
 <ul>
-  <%= render @message_boards %>
+  <% if existing_message_boards_users %>
+    <% @existing_message_boards_users.each do |agency_user| %>
+    <% agency_user != current_user %>
+      <li>
+        <%= link_to(message_boards_path(current_user, :agency_user => agencyuser_id), method: :post) do %>
+        <%= agency_user.username %>
+        <% end %>
+      </li>
+      <% end %>
+    <% end %>
+  <% end %>
 </ul>
+
+All Agencies:
+<ul>
+  <% Agencyuser.all.each do |agency_user| %>
+    <% if agency_user != current_user %>
+      <li>
+        <%= link_to(message_boards_path(current_user, :agency_user => agencyuser_id), method: :post) do %>
+        <%= agency_user.username %>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
