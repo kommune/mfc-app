@@ -17,29 +17,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-     <%# <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to "Home", root_path, class: "navbar-brand" %>
-      <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <% if current_user %>
-            <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>
-            <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>
-            <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %></li>
-          <% else %>
-            <li class="navbar-nav nav-item"><%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %></li>
-            <li class="navbar-nav nav-item"><%= link_to('Log in', new_user_session_path, class: 'nav-link') %></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>-->
     <%= render partial: '/agencies/navbar' %>
     <%= yield %>
+
   </body>
 </html>
