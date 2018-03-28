@@ -1,6 +1,6 @@
 class Agency < ApplicationRecord
 
-  searchkick _all: false, default_fields: [:name, :street_name, :postal_code, :area, :criteria, :description]
+  searchkick word_start: [:name, :street_name, :description]
   
   validates :name, presence: true
 
