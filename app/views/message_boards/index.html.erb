@@ -1,7 +1,32 @@
-<h1>Message Board</h1>
+<div class="inline-block">
+List of current chats:
+  <ul>
+    <% if @existing_message_boards_users %>
+      <% @existing_message_boards_users.each do |other_user| %>
+      <% if other_user != current_user %>
+        <li>
+          <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+            <%= other_user.username %>
+          <% end %>
+        </li>
+      <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
 
-<p class='lead'><%= link_to 'New Message Board', new_message_board_path, class: 'btn btn-primary' %></p>
-
-<ul>
-  <%= render @message_boards %>
-</ul>
+<div class="inline-block">
+  All Users:
+  <ul>
+    <% User.all.each do |other_user| %>
+      <% if other_user != current_user %>
+        <li>
+          <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+            <%= other_user.username %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>

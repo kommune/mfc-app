@@ -20,8 +20,17 @@ class User < ApplicationRecord
   enum marital_status: [ :single, :married, :divorced, :widowed ]
   enum children: [ :no, :yes ]
 
-  has_many :message_boards, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  has_many :messages
+  has_many :subscriptions
+  has_many :message_boards, through: :subscriptions
+
+  def existing_message_boards_users
+    existing_message_board_users = []
+    self.message_boards.each do |message_board|
+      existing_message_board_users.concat(message_board.subscriptions.where.not(user_id: self.id).map {|subscription| subscription.user})
+    end
+    existing_message_board_users.uniq
+  end
 
   def birth
     errors.add(:birth_date, "is incorrect") if
