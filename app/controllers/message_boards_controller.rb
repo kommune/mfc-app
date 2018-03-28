@@ -1,46 +1,45 @@
+require 'securerandom'
+
 class MessageBoardsController < ApplicationController
 
   def index
-    @message_boards = MessageBoard.all
-  end
-
-  def new
-    @message_board = MessageBoard.new
+      message_boards = current_user.message_boards
+      @existing_message_boards_users = current_user.existing_message_boards_users
   end
 
   def create
-    @message_board = current_user.message_boards.build(message_board_params)
-    if @message_board.save
-      flash[:success] = 'Message board added!'
-      redirect_to message_boards_path
-    else
-      render 'new'
+    @other_user = User.find(params[:other_user])
+    @message_board = find_chat(@other_user) || MessageBoard.new(identifier: SecureRandom.hex)
+    if !@message_board.persisted?
+      @message_board.save
+      @message_board.subscriptions.create(user_id: current_user.id)
+      @message_board.subscriptions.create(user_id: @other_user.id)
     end
+    redirect_to user_message_board_path(current_user, @message_board, :other_user => @other_user.id)
   end
 
   def show
-    @message_board = MessageBoard.includes(:messages).find_by(id: params[:id])
+    @other_user = User.find(params[:other_user])
+    @message_board = MessageBoard.find_by(id: params[:id])
     @message = Message.new
-  end
-
-  def destroy
-    @message_board = MessageBoard.includes(:messages).find_by(id: params[:id])
-    @messages = Message.find_by(id: params[:id])
-
-    if current_user
-      if @message_board.destroy
-        redirect_to message_boards_path
-      else
-        @message.destroy
-        redirect_to message_board(@message_board)
-      end
-    end
   end
 
   private
 
+  def find_chat(second_user)
+    message_boards = current_user.message_boards
+    message_boards.each do |message_board|
+      message_board.subscriptions.each do |s|
+        if s.user_id == second_user.id
+          return message_board
+        end
+      end
+    end
+    nil
+  end
+
   def message_board_params
-    params.require(:message_board).permit(:title)
+    params.require(:message_board).permit(:identifier)
   end
 
 end

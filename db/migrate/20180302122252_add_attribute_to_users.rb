@@ -7,6 +7,7 @@ class AddAttributeToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :gender, :integer, default: 0
     add_column :users, :marital_status, :integer, default: 0
     add_column :users, :children, :integer, default: 0
+    add_column :users, :role, :integer, default: 0
     add_index :users, :username, unique: true
   end
 end
