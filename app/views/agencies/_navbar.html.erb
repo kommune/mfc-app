@@ -53,8 +53,8 @@
       <div class="navbar-nav flex-row ml-md-auto d-md-flex">
       <ul class="navbar-nav mr-auto">
         <% if current_user %>
-          <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>&nbsp;&nbsp;
-          <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>&nbsp;&nbsp;
+          <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>
+          <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>
           <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %></li>
         <% elsif current_agencyuser %>
           <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_agencyuser_session_path, method: :delete, class: 'nav-link') %></li>

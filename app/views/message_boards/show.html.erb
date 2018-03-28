@@ -13,9 +13,4 @@
   <%= render partial: 'messages/message_form', locals: {message: @message, message_board: @message_board} %>
 
   <p><%= link_to "Back to list of message boards", user_message_boards_path(current_user.id) %></p>
-      
-  <script>
-    createMessageChannel();
-    messageForm();
-    $(".scroll").scrollTop($(".scroll")[0].scrollHeight);
-  </script>
+
