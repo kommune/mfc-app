@@ -24,6 +24,7 @@ gem 'devise', '~> 4.4', '>= 4.4.1'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'searchkick'
 gem 'rubocop', '~> 0.54.0'
+gem 'font-awesome-sass', '~> 5.0', '>= 5.0.6.2'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
