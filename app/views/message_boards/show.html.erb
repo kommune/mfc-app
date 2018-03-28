@@ -1,16 +1,21 @@
-<h1><%= @message_board.title %></h1>
-
-<div id='messages' data-message-board-id="<%= @message_board.id %>">
-  <%= render @message_board.messages %>
-  <%= link_to "Delete this message board: #{@message_board.title}", message_board_path(@message_board, @user), method: :delete %> 
-</div>
-
-<%= form_for @message, url: '#' do |f| %>
-  <div>
-    <%= f.label :body, 'Your message:' %>
-    <%= f.text_area :body, class:'form-control' %>
-    <small class="text-muted">From 2 to 1000 characters</small>
+<div class="scroll">
+  <h5>Message board with <%= @other_user.username %></h5>
+    <% if @message_board.messages.any? %>
+      <div id="messages">
+        <%= render partial: 'messages/message', collection: @message_board.messages.order(id: :asc) %>
+      </div>
+    <% else %>
+      <div id="messages">
+      </div>
+    <% end %>
   </div>
 
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-<% end %>
+  <%= render partial: 'messages/message_form', locals: {message: @message, message_board: @message_board} %>
+
+  <p><%= link_to "Back to list of message boards", user_message_boards_path(current_user.id) %></p>
+      
+  <script>
+    createMessageChannel();
+    messageForm();
+    $(".scroll").scrollTop($(".scroll")[0].scrollHeight);
+  </script>

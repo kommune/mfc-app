@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   end
   resources :categories, only: [:show]
 
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update] do
+    resources :message_boards, only: [:new, :create, :show, :index, :destroy]
+  end
 
-  resources :message_boards, only: [:new, :create, :show, :index, :destroy]
+  resources :messages, only: [:create]
 
   resources :contacts, only: [:create]
 
