@@ -1,4 +1,4 @@
-function messageForm() {
+$(document).on("turbolinks:load", function () {
   var shiftDown = false;
   var messageBoardForm = $("#new_message");
   var messageBox = messageBoardForm.children("textarea");
@@ -18,4 +18,6 @@ function messageForm() {
   $(document).keyup(function (e) {
     if(e.keyCode == 16) shiftDown = false;
   });
-}
+
+  $(".scroll").scrollTop($(".scroll")[0].scrollHeight);
+})
