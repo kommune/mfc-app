@@ -1,32 +1,50 @@
-<div class="inline-block">
-List of current chats:
-  <ul>
-    <% if @existing_message_boards_users %>
-      <% @existing_message_boards_users.each do |other_user| %>
-      <% if other_user != current_user %>
-        <li>
-          <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
-            <%= other_user.username %>
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <% if current_user.user? %>
+          <li class="list-group-item"><b>List of Agencies</b></li>
+          <% @agency_user.each do |other_user| %>
+            <% if other_user != current_user %>
+              <li class="list-group-item">
+                <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+                  <%= other_user.username %>
+                <% end %>
+              </li>
+            <% end %>
           <% end %>
-        </li>
-      <% end %>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-5">
+      <h1>Current agency chat</h1>
+      <br>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Agencies</th>
+            <th scope="col">Updated At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+            <% if @existing_message_boards_users %>
+              <% @existing_message_boards_users.each do |other_user| %>
+                <% if other_user != current_user %>
+                  <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+                    <%= other_user.username %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+            </td>
+            <td>
 
-<div class="inline-block">
-  All Users:
-  <ul>
-    <% User.all.each do |other_user| %>
-      <% if other_user != current_user %>
-        <li>
-          <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
-            <%= other_user.username %>
-          <% end %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>

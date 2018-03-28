@@ -11,18 +11,20 @@ end
 
 puts "Category created"
 
-CSV.foreach(Rails.root.join("db/seeds_data/agencyuser.csv"), headers: true) do |row|
-  Agencyuser.create!(email: row[0], password: row[1], username: row[2], agency_id: row[3])
+CSV.foreach(Rails.root.join("db/seeds_data/users.csv"), headers: true) do |row|
+  User.create!(email: row[0], password: row[1], username: row[2], name: row[3], postal_code: row[4], role: row[5])
 end
 
-puts "Agencyuser created"
+puts "Agecy users created"
 
 Admin.create!(name: "Admin", email: "admin@example.com", password: "123123")
 puts "Default admin created"
 
-User.create!(name: "User1", username: "user1", password: "123123", postal_code: "650175", email: "user1@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22))
-User.create!(name: "User2", username: "user2", password: "123123", postal_code: "650175", email: "user2@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22))
-puts "2 users created"
+User.create!(name: "User1", username: "user1", password: "123123", postal_code: "650175", email: "user1@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22), role: 0)
+User.create!(name: "User2", username: "user2", password: "123123", postal_code: "650175", email: "user2@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22), role: 0)
+User.create!(name: "User3", username: "user3", password: "123123", postal_code: "650175", email: "user3@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22), role: 0)
+User.create!(name: "User4", username: "user4", password: "123123", postal_code: "650175", email: "user4@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22), role: 0)
+puts "4 users created"
 
 (1..49).each do |x|
   Agency.find(x).category_ids = [1,2,6,7,8,10,11,12,13,17]
