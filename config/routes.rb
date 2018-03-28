@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :agencyusers, path: 'agencyusers', controllers: { sessions: "agencyusers/sessions" }
+
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations" }
 
@@ -21,7 +21,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :agencies
-    resources :agencyusers
     resources :categories
     resources :contacts, only: [:index, :show, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update, :destroy]

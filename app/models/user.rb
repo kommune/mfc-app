@@ -19,6 +19,7 @@ class User < ApplicationRecord
   enum gender: [ :male, :female ]
   enum marital_status: [ :single, :married, :divorced, :widowed ]
   enum children: [ :no, :yes ]
+  enum role: [ :user, :agency_user ]
 
   has_many :messages
   has_many :subscriptions
