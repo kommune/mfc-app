@@ -1,6 +1,6 @@
 require 'csv'
 CSV.foreach(Rails.root.join("db/seeds_data/agencies.csv"), headers: true) do |row|
-  Agency.find_or_create_by!(name: row[0], office_number: row[1], fax_number: row[2], street_name: row[3], postal_code: row[4], email: row[5], website: row[6], opening_hours: row[7], criteria: row[8], description: row[9], area: row[13])
+  Agency.find_or_create_by!(name: row[0], street_name: row[1], postal_code: row[2], office_number: row[3], fax_number: row[4],  email: row[5], website: row[6], opening_hours: row[7], criteria: row[8], description: row[9], area: row[13])
 end
 
 puts "Agency created"
