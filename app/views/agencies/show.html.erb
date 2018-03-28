@@ -13,7 +13,8 @@
         <div class="card mb-5">
           <div class="card-body mb-5">
             <h3>Map</h3>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7856307165016!2d103.79603231479757!3d1.3036329990491882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a40abcf9e23%3A0x3bcbc4bebba58c92!2sSocial+Service+Office+%40+Queenstown!5e0!3m2!1sen!2ssg!4v1522201117401" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <iframe width="600" height="450" frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?q=<%=@agency.postal_code%>&key=<%=ENV['GOOGLE_API_KEY2']%>" allowfullscreen></iframe>
           </div>
         </div>
       </div>
