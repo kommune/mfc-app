@@ -8,6 +8,9 @@ class Agencyuser < ApplicationRecord
         :rememberable, :trackable, :validatable, authentication_keys: [:login]
 
   belongs_to :agency
+  has_many :messages
+  has_many :subscriptions
+  has_many :message_boards, through: :subscriptions
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
