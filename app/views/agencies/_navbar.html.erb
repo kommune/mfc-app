@@ -1,73 +1,58 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler ml-auto button-navbar" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="agencies#home" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Home
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to('Homepage', root_path, class: 'dropdown-item') %>
-            <% if current_user %>
-              <%= link_to('Message Board', user_message_boards_path(current_user), class: 'dropdown-item') %>
-            <% end %>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to('Financial', category_path(1), class: 'dropdown-item') %>
-            <%= link_to('Family', category_path(2), class: 'dropdown-item') %>
-            <%= link_to('Food Rations', category_path(3), class: 'dropdown-item') %>
-            <%= link_to('Donations', category_path(4), class: 'dropdown-item') %>
-            <%= link_to('Health', category_path(5), class: 'dropdown-item') %>
-            <%= link_to('Elderly', category_path(6), class: 'dropdown-item') %>
-            <%= link_to('Children', category_path(7), class: 'dropdown-item') %>
-            <%= link_to('Teens', category_path(8), class: 'dropdown-item') %>
-            <%= link_to('Employment', category_path(9), class: 'dropdown-item') %>
-            <%= link_to('Accommodation/Shelter', category_path(10), class: 'dropdown-item') %>
-            <%= link_to('Mental Health', category_path(11), class: 'dropdown-item') %>
-            <%= link_to('Addictions', category_path(12), class: 'dropdown-item') %>
-            <%= link_to('Counselling', category_path(13), class: 'dropdown-item') %>
-            <%= link_to('Legal', category_path(14), class: 'dropdown-item') %>
-            <%= link_to('Special Needs', category_path(15), class: 'dropdown-item') %>
-            <%= link_to('Disability', category_path(16), class: 'dropdown-item') %>
-            <%= link_to('Miscellaneous', category_path(17), class: 'dropdown-item') %>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact Us</a>
-        </li>
-
-          <div class="form-inline">
-            <%= form_tag search_agencies_path, :method => 'get' do %>
-              <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2' %>
-              <%= submit_tag "Search" %>
-            <% end %>
-          </div>
-      </ul>
-      <div class="navbar-nav flex-row ml-md-auto d-md-flex">
+  <%= link_to "Cosmos", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler ml-auto button-navbar" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to('Financial', category_path(1), class: 'dropdown-item') %>
+          <%= link_to('Family', category_path(2), class: 'dropdown-item') %>
+          <%= link_to('Food Rations', category_path(3), class: 'dropdown-item') %>
+          <%= link_to('Donations', category_path(4), class: 'dropdown-item') %>
+          <%= link_to('Health', category_path(5), class: 'dropdown-item') %>
+          <%= link_to('Elderly', category_path(6), class: 'dropdown-item') %>
+          <%= link_to('Children', category_path(7), class: 'dropdown-item') %>
+          <%= link_to('Teens', category_path(8), class: 'dropdown-item') %>
+          <%= link_to('Employment', category_path(9), class: 'dropdown-item') %>
+          <%= link_to('Accommodation/Shelter', category_path(10), class: 'dropdown-item') %>
+          <%= link_to('Mental Health', category_path(11), class: 'dropdown-item') %>
+          <%= link_to('Addictions', category_path(12), class: 'dropdown-item') %>
+          <%= link_to('Counselling', category_path(13), class: 'dropdown-item') %>
+          <%= link_to('Legal', category_path(14), class: 'dropdown-item') %>
+          <%= link_to('Special Needs', category_path(15), class: 'dropdown-item') %>
+          <%= link_to('Disability', category_path(16), class: 'dropdown-item') %>
+          <%= link_to('Miscellaneous', category_path(17), class: 'dropdown-item') %>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Contact Us</a>
+      </li>
+        <div class="form-inline">
+          <%= form_tag search_agencies_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2' %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        </div>
+    </ul>
+    <div class="navbar-nav flex-row ml-md-auto d-md-flex">
       <ul class="navbar-nav mr-auto">
         <% if current_user %>
-          <li class="nav-item navbar-nav "><%= link_to('Edit Profile', edit_user_path(current_user) , class: 'nav-link') %></li>
+          <% if current_user.user? %>
+            <li class="nav-item navbar-nav "><%= link_to( current_user.name.capitalize + ' Account', edit_user_path(current_user) , class: 'nav-link') %></li>
+          <% end %>
+          <li class="nav-item navbar-nav "><%= link_to('Message Board', user_message_boards_path(current_user), class: 'nav-link') %></li>
           <li class="nav-item navbar-nav "><%= link_to('Change Password', edit_user_registration_path , class: 'nav-link') %></li>
           <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'nav-link') %></li>
         <% else %>
-          <li class="nav-item navbar-nav dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Log in
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to('User', new_user_session_path, class: 'dropdown-item') %>
-            </div>
-          </li>
+          <li class="navbar-nav nav-item"><%= link_to('Log In', new_user_session_path, class: 'nav-link') %></li>
           <li class="navbar-nav nav-item"><%= link_to('Sign Up', new_user_registration_path, class: 'nav-link') %></li>
         <% end %>
         </ul>
-      </div>
     </div>
-  </nav>
+  </div>
+</nav>
