@@ -7,6 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, authentication_keys: [:login]
 
+  searchkick _all: false, default_fields: [:postal_code]
+
   validates :name, presence: true
   validates :username, presence: :true, uniqueness: true
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true

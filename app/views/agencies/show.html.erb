@@ -1,44 +1,33 @@
-<p>
-  <strong>Agency:</strong>
-  <%= @agency.name %>
-</p>
-
-<p>
-  <strong>Office Number:</strong>
-  <%= @agency.office_number %>
-</p>
-
-<p>
-  <strong>Fax Number:</strong>
-  <td><%= @agency.fax_number %></td>
-</p>
-<p>
-  <strong>Address:</strong>
-  <td><%= @agency.street_name %></td>
-</p>
-<p>
-  <strong>Email:</strong>
-  <td><%= @agency.email %></td>
-</p>
-<p>
-  <strong>Website:</strong>
-  <td><%= @agency.website %></td>
-</p>
-<p>
-  <strong>Opening Hours:</strong>
-  <td><%= @agency.opening_hours %></td>
-</p>
-<p>
-  <strong>Category:</strong>
-  <td><%= @agency.categories %></td>
-</p>
-<p>
-  <strong>Criteria:</strong>
-  <td><%= @agency.criteria %></td>
-</p>
-<p>
-  <strong>Description:</strong>
-  <td><%= @agency.description%></td>
-</p>
-
-<%= link_to 'Back Index', agencies_path, class: 'btn btn-info'%>
+<section class="background-agency mt-5">
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-8 mt-5">
+        <div class="card">
+          <div class="card-body">
+            <h3><%= @agency.name %></h3>
+            <br>
+            <p><%= @agency.description %></p>
+          </div>
+        </div>
+        <br>
+        <div class="card mb-5">
+          <div class="card-body mb-5">
+            <h3>Map</h3>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7856307165016!2d103.79603231479757!3d1.3036329990491882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1a40abcf9e23%3A0x3bcbc4bebba58c92!2sSocial+Service+Office+%40+Queenstown!5e0!3m2!1sen!2ssg!4v1522201117401" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-5">
+        <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item agency-color"><h5><%= icon('fas', 'map-marker' ) + "  Address" %></h5><span class="text-muted"><%= @agency.street_name %><br>Singapore <%= @agency.postal_code %></span></li>
+          <li class="list-group-item agency-color"><h5><%= icon('fas', 'clock' ) + "  Opening Hours" %></h5><span class="text-muted"><%= @agency.opening_hours%></span></li>
+          <li class="list-group-item agency-color"><h5><%= icon('fas', 'phone' ) + "  Address" %></h5><%= link_to "Dial: " + @agency.office_number.to_s, nil, class: 'btn btn-outline-primary d-flex justify-content-center' %><br><%= link_to 'Fax: ' + @agency.fax_number.to_s, nil, class: 'btn btn-outline-info d-flex justify-content-center' %><br></li>
+          <li class="list-group-item agency-color"><%= icon('fas', 'envelope' ) %>&nbsp&nbsp<%=  mail_to  @agency.email, @agency.email, class: 'email-link' %><br><br><%= icon('fas', 'link' ) %>&nbsp&nbsp<%= link_to @agency.website,  @agency.website, class: 'email-link' %></li>
+        </ul>
+      </div>
+      <br>
+      <%= link_to 'Back Index', agencies_path, class: 'btn btn-info'%>
+    </div>
+  </div>
+</section>

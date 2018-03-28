@@ -1,7 +1,7 @@
 class Agency < ApplicationRecord
 
-  after_save ThinkingSphinx::RealTime.callback_for(:agency)
-
+  searchkick word_start: [:name, :street_name, :description]
+  
   validates :name, presence: true
 
   enum area: [ :north, :south, :east, :west, :central, :all_areas ]
