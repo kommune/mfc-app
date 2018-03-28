@@ -1,28 +1,32 @@
-<ul>
-  <% if existing_message_boards_users %>
-    <% @existing_message_boards_users.each do |agency_user| %>
-    <% agency_user != current_user %>
-      <li>
-        <%= link_to(message_boards_path(current_user, :agency_user => agencyuser_id), method: :post) do %>
-        <%= agency_user.username %>
-        <% end %>
-      </li>
+<div class="inline-block">
+List of current chats:
+  <ul>
+    <% if @existing_message_boards_users %>
+      <% @existing_message_boards_users.each do |other_user| %>
+      <% if other_user != current_user %>
+        <li>
+          <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+            <%= other_user.username %>
+          <% end %>
+        </li>
+      <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>
 
-All Agencies:
-<ul>
-  <% Agencyuser.all.each do |agency_user| %>
-    <% if agency_user != current_user %>
-      <li>
-        <%= link_to(message_boards_path(current_user, :agency_user => agencyuser_id), method: :post) do %>
-        <%= agency_user.username %>
-        <% end %>
-      </li>
+<div class="inline-block">
+  All Users:
+  <ul>
+    <% User.all.each do |other_user| %>
+      <% if other_user != current_user %>
+        <li>
+          <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+            <%= other_user.username %>
+          <% end %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-
+  </ul>
+</div>
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
