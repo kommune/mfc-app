@@ -10,7 +10,18 @@ class AgenciesController < ApplicationController
 
   def search
     if params[:search]
-      @agencies = Agency.search ThinkingSphinx::Query.escape(params[:search])
+      @agencies = Agency.search(
+        params[:search],
+        fields: ["name^10", "street_name^2", "description^1"],
+        match: :word_start,
+        misspellings: {
+                        edit_distance:  2,
+                        transpositions: true
+                      },
+        operator: "or",
+        page: params[:page],
+        per_page: 5
+      )
     else
       @agencies = Agency.all
     end
