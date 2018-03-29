@@ -13,16 +13,21 @@ class User < ApplicationRecord
   validates :username, presence: :true, uniqueness: true
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validates :birth_date, presence: true
-  validates :postal_code, numericality: { only_integer: true }, length: { is: 6 }
+  validates :postal_code, numericality: { only_integer: true }
   validate :birth
 
   enum gender: [ :male, :female ]
   enum marital_status: [ :single, :married, :divorced, :widowed ]
   enum children: [ :no, :yes ]
+  enum role: [ :user, :agency_user ]
 
   has_many :messages
   has_many :subscriptions
   has_many :message_boards, through: :subscriptions
+
+  def user?
+    self.role == "user"
+  end
 
   def existing_message_boards_users
     existing_message_board_users = []
