@@ -15,7 +15,7 @@ CSV.foreach(Rails.root.join("db/seeds_data/users.csv"), headers: true) do |row|
   User.create!(email: row[0], password: row[1], username: row[2], name: row[3], postal_code: row[4], role: row[5])
 end
 
-puts "Agecy users created"
+puts "Agency users created"
 
 Admin.create!(name: "Admin", email: "admin@example.com", password: "123123")
 puts "Default admin created"
