@@ -154,24 +154,22 @@ body {
   margin-left: 54px;
 }
 
-.background-login {
+.background-devise {
   background-repeat: no-repeat;
   background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .background-signin {
   background-repeat: no-repeat;
   background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+  min-height: 100vh;
 }
 
 .background-agency {
   background-repeat: no-repeat;
   background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
-
+  min-height: 100vh;
 }
 
 .margin-card {
@@ -185,22 +183,18 @@ body {
 
 .scroll {
   margin-top: 100px;
+}
 
 .agency-color {
   background-color: #edece9;
 }
 
 .email-link {
-
   text-decoration: underline;
   color: #4d13af;
 }
+
 .email-link:hover {
-
   text-decoration: underline;
   color: #4d13af;
-
 }
-
-}
-
