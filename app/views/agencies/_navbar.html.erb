@@ -39,16 +39,29 @@
             <%= link_to('Miscellaneous', category_path(17), class: 'dropdown-item') %>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Areas
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%# <%= link_to('North', controller: "agencies", action: "search", filters.merge(area: 'north'), class: 'dropdown-item') %> %>
+            <%= link_to('South', category_path(2), class: 'dropdown-item') %>
+            <%= link_to('East', category_path(3), class: 'dropdown-item') %>
+            <%= link_to('West', category_path(4), class: 'dropdown-item') %>
+            <%= link_to('Central', category_path(5), class: 'dropdown-item') %>
+            <%= link_to('Islandwide', category_path(5), class: 'dropdown-item') %>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact Us</a>
         </li>
 
-          <div class="form-inline">
-            <%= form_tag search_agencies_path, :method => 'get' do %>
-              <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2' %>
-              <%= submit_tag "Search" %>
-            <% end %>
-          </div>
+        <div class="form-inline">
+          <%= form_tag search_agencies_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2' %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        </div>
       </ul>
       <div class="navbar-nav flex-row ml-md-auto d-md-flex">
       <ul class="navbar-nav mr-auto">
