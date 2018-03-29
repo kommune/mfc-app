@@ -31,4 +31,10 @@ class AgenciesController < ApplicationController
     @contact = Contact.new
   end
 
+  def area_filters
+    allowed_filters = %w(area)
+    filters = params.select{|k, v| allowed_filters.include?(k) }
+  end
+  helper_method :area_filters
+
 end
