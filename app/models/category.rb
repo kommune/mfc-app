@@ -5,4 +5,10 @@ class Category < ApplicationRecord
   has_many :agencies_categories, dependent: :destroy
   has_many :agencies, through: :agencies_categories
 
+  after_commit :reindex_agency
+
+  def reindex_agency
+    agency.reindex
+  end
+  
 end
