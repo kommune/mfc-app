@@ -198,3 +198,74 @@ body {
   text-decoration: underline;
   color: #4d13af;
 }
+
+.container-message-board {
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: absolute;
+  width: calc(100% - 20px);
+  max-width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.container-message-board h5{
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  padding: 20px 0 15px;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+  color: #bcbdc0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.messages-text {
+  text-align: left;
+}
+
+.bottom-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 20px;
+  position: absolute;
+  bottom: 0;
+}
+
+.bottom-wrapper .messages-input-wrapper {
+  display: inline-block;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #bcbdc0;
+  width: calc(100% - 160px);
+  position: relative;
+  padding: 0 20px;
+}
+
+.bottom_wrapper .message_input_wrapper .message_input {
+  border: none;
+  height: 100%;
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  position: absolute;
+  outline-width: 0;
+  color: gray;
+}
+
+.message-input {
+  display: inline-block;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #bcbdc0;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+}
