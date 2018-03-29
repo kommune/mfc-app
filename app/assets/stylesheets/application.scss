@@ -154,10 +154,18 @@ body {
   margin-left: 54px;
 }
 
-.background {
+.background-login {
   background-repeat: no-repeat;
   background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+}
 
+.background-signin {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
 }
 
 .background-agency {
