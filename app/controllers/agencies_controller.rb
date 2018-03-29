@@ -1,7 +1,18 @@
 class AgenciesController < ApplicationController
 
   def index
-    @agencies = Agency.page((params[:page])).per(5)
+    search = params[:search].presence || "*"
+    conditions = {}
+    conditions[:area] = params[:area] if params[:area].present?
+    conditions[:categories_name] = params[:categories_name] if params[:categories_name].present?
+    
+    @agencies = Agency.search(
+      search,
+      where: conditions,
+      aggs: [:area, :categories_name],
+      smart_aggs: false, 
+      order: {name: :asc}
+    )
   end
 
   def show
@@ -30,11 +41,5 @@ class AgenciesController < ApplicationController
   def home
     @contact = Contact.new
   end
-
-  def area_filters
-    allowed_filters = %w(area)
-    filters = params.select{|k, v| allowed_filters.include?(k) }
-  end
-  helper_method :area_filters
 
 end
