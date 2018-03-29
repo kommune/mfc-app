@@ -59,26 +59,6 @@ ActiveRecord::Schema.define(version: 20180327022034) do
     t.index ["category_id"], name: "index_agencies_categories_on_category_id"
   end
 
-  create_table "agencyusers", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "username", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.bigint "agency_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["agency_id"], name: "index_agencyusers_on_agency_id"
-    t.index ["email"], name: "index_agencyusers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_agencyusers_on_reset_password_token", unique: true
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -97,22 +77,18 @@ ActiveRecord::Schema.define(version: 20180327022034) do
 
   create_table "message_boards", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "agencyuser_id"
     t.string "identifier", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["agencyuser_id"], name: "index_message_boards_on_agencyuser_id"
     t.index ["user_id"], name: "index_message_boards_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.bigint "user_id"
-    t.bigint "agencyuser_id"
     t.bigint "message_board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["agencyuser_id"], name: "index_messages_on_agencyuser_id"
     t.index ["message_board_id"], name: "index_messages_on_message_board_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -120,7 +96,6 @@ ActiveRecord::Schema.define(version: 20180327022034) do
   create_table "subscriptions", force: :cascade do |t|
     t.integer "message_board_id"
     t.integer "user_id"
-    t.integer "agencyuser_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -141,10 +116,11 @@ ActiveRecord::Schema.define(version: 20180327022034) do
     t.string "name", null: false
     t.string "username", null: false
     t.integer "postal_code"
-    t.date "birth_date", null: false
+    t.date "birth_date", default: "2018-03-29", null: false
     t.integer "gender", default: 0
     t.integer "marital_status", default: 0
     t.integer "children", default: 0
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -152,10 +128,7 @@ ActiveRecord::Schema.define(version: 20180327022034) do
 
   add_foreign_key "agencies_categories", "agencies"
   add_foreign_key "agencies_categories", "categories"
-  add_foreign_key "agencyusers", "agencies"
-  add_foreign_key "message_boards", "agencyusers"
   add_foreign_key "message_boards", "users"
-  add_foreign_key "messages", "agencyusers"
   add_foreign_key "messages", "message_boards"
   add_foreign_key "messages", "users"
 end

@@ -2,9 +2,12 @@ require 'securerandom'
 
 class MessageBoardsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
-      message_boards = current_user.message_boards
-      @existing_message_boards_users = current_user.existing_message_boards_users
+    @agency_user = User.where(role: "agency_user")
+    message_boards = current_user.message_boards
+    @existing_message_boards_users = current_user.existing_message_boards_users
   end
 
   def create
