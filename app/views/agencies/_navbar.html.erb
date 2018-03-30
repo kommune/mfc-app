@@ -5,9 +5,6 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to( 'List of Agencies', agencies_path , class: 'nav-link') %>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
@@ -31,6 +28,9 @@
           <%= link_to('Disability', category_path(16), class: 'dropdown-item') %>
           <%= link_to('Miscellaneous', category_path(17), class: 'dropdown-item') %>
         </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to('Agencies List', agencies_path , class: 'nav-link') %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/#contact">Contact Us</a>
