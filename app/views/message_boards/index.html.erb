@@ -9,24 +9,28 @@
           <tr>
             <th scope="col">Agencies</th>
             <th scope="col">Message Created</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           <% if @existing_message_boards_users %>
             <% @existing_message_boards_users.each do |other_user| %>
-              <% if other_user != current_user %>
-                <tr>
-                  <td>
-                    <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
-                      <%= other_user.agency.name %>
-                    <% end %>
-                  </td>
-                  <td>
-                    <% other_user.message_boards.each do |message_board| %>
+              <% other_user.message_boards.each do |message_board| %>
+                <% if other_user != current_user %>
+                  <tr>
+                    <td>
+                      <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
+                        <%= other_user.agency.name %>
+                      <% end %>
+                    </td>
+                    <td>
                       <%= message_board.created_at.strftime("%d-%m-%Y, %l:%M:%S %p") %>
-                    <% end %>
-                  </td>
-                </tr>
+                    </td>
+                    <td>
+                      <%= link_to 'Delete', user_message_board_path(current_user, message_board), method: :delete %>
+                    </td>
+                  </tr>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
