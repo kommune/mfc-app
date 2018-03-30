@@ -1,50 +1,31 @@
-<div class="container mt-5">
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-3">
-      <ul class="list-group">
-        <% if current_user.user? %>
-          <li class="list-group-item"><b>List of Agencies</b></li>
-          <% @agency_user.each do |other_user| %>
-            <% if other_user != current_user %>
-              <li class="list-group-item">
-                <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
-                  <%= other_user.username %>
-                <% end %>
-              </li>
-            <% end %>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <div class="col-md-5">
-      <h1>Current agency chat</h1>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1>Your message boards</h1>
       <br>
       <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">Agencies</th>
-            <th scope="col">Updated At</th>
+            <th scope="col">Last message:</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-            <% if @existing_message_boards_users %>
-              <% @existing_message_boards_users.each do |other_user| %>
-                <% if other_user != current_user %>
-                  <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
-                    <%= other_user.username %>
-                  <% end %>
+          <% if @existing_message_boards_users %>
+            <% @existing_message_boards_users.each do |other_user| %>
+              <% if other_user != current_user %>
+                <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+                <tr>
+                  <th scope="row"><%= other_user.username %></th>
+                  <td><%= other_user.created_at.strftime("%d-%m-%Y, %H:%M:%S") %> </td>    
                 <% end %>
               <% end %>
             <% end %>
-            </td>
-            <td>
-
-            </td>
-          </tr>
+          <% end %>
+                </tr>
         </tbody>
       </table>
     </div>
+    <div class="col-md-2"></div>
   </div>
 </div>
