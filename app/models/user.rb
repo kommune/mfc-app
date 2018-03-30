@@ -21,8 +21,8 @@ class User < ApplicationRecord
   enum children: [ :no, :yes ]
   enum role: [ :user, :agency_user ]
 
-  has_many :messages
-  has_many :subscriptions
+  has_many :messages, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
   has_many :message_boards, through: :subscriptions
   has_many :visits, class_name: "Ahoy::Visit"
 
