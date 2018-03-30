@@ -111,16 +111,18 @@ ActiveRecord::Schema.define(version: 20180327022034) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.bigint "agency_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.string "username", null: false
     t.integer "postal_code"
-    t.date "birth_date", default: "2018-03-29", null: false
+    t.date "birth_date", default: "2018-03-30", null: false
     t.integer "gender", default: 0
     t.integer "marital_status", default: 0
     t.integer "children", default: 0
     t.integer "role", default: 0
+    t.index ["agency_id"], name: "index_users_on_agency_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -131,4 +133,5 @@ ActiveRecord::Schema.define(version: 20180327022034) do
   add_foreign_key "message_boards", "users"
   add_foreign_key "messages", "message_boards"
   add_foreign_key "messages", "users"
+  add_foreign_key "users", "agencies"
 end
