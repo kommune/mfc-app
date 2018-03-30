@@ -3,7 +3,7 @@
     <span>Agency</span>
     <ul class="menu">
     <% @agencies.aggs["area"]["buckets"].each do |filter| %>
-      <li><%= link_to "#{filter["key"].humanize} (#{filter["doc_count"]})", "/agencies?area=#{filter["key"]}" %></li>
+      <li><%= link_to "#{filter["key"].humanize} (#{filter["doc_count"]})", "/agencies?area[]=#{filter["key"]}" %></li>
     <% end %>
     </ul>
   <% end %>
@@ -14,7 +14,7 @@
     <span>Categories</span>
     <ul class="menu">
     <% @agencies.aggs["categories_name"]["buckets"].each do |filter| %>
-      <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/agencies?categories_name=#{filter["key"]}" %></li>
+      <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/agencies?categories_name[]=#{filter["key"]}" %></li>
     <% end %>
     </ul>
   <% end %>
