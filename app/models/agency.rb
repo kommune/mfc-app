@@ -9,8 +9,6 @@ class Agency < ApplicationRecord
     )
   end
 
-  visitable :sign_up_visit, class_name: "Visit"
-
   validates :name, presence: true
 
   enum area: [ :north, :south, :east, :west, :central, :all_areas ]
