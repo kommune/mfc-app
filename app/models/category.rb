@@ -8,7 +8,7 @@ class Category < ApplicationRecord
   after_commit :reindex_agency
 
   def reindex_agency
-    agency.reindex
+    Agency.reindex
   end
-  
+
 end
