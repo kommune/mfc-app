@@ -1,30 +1,32 @@
-<div class="container mt-5">
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-7 mt-5">
-      <h1>Agency messages</h1>
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1>Your message boards</h1>
       <br>
       <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Agencies</th>
+            <th scope="col">Last message:</th>
           </tr>
         </thead>
         <tbody>
-            <% if @existing_message_boards_users %>
-              <% @existing_message_boards_users.each do |other_user| %>
-                <% if other_user != current_user %>
-          <tr>
-            <td>
-                  <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
-                    <%= other_user.agency.name %>
-                  <% end %>
-            </td>
-          </tr>
+          <% if @existing_message_boards_users %>
+            <% @existing_message_boards_users.each do |other_user| %>
+              <% if other_user != current_user %>
+                <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+                <tr>
+                  <th scope="row"><%= other_user.username %></th>
+                  <td><%= other_user.created_at.strftime("%d-%m-%Y, %H:%M:%S") %> </td>    
                 <% end %>
               <% end %>
             <% end %>
+          <% end %>
+                </tr>
+          </tr>
         </tbody>
       </table>
     </div>
+    <div class="col-md-2"></div>
   </div>
 </div>
