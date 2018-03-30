@@ -6,7 +6,7 @@ class MessageBoardsController < ApplicationController
 
   def index
     @agency_user = User.where(role: "agency_user")
-    message_boards = current_user.message_boards
+    @message_boards = current_user.message_boards
     @existing_message_boards_users = current_user.existing_message_boards_users
   end
 

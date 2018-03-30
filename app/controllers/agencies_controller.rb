@@ -18,6 +18,7 @@ class AgenciesController < ApplicationController
 
   def show
     @agency = Agency.find(params[:id])
+    @other_user = @agency.user.agency_id
   end
 
   def search
