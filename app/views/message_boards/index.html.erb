@@ -1,48 +1,28 @@
 <div class="container mt-5">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-3">
-      <ul class="list-group">
-        <% if current_user.user? %>
-          <li class="list-group-item"><b>List of Agencies</b></li>
-          <% @agency_user.each do |other_user| %>
-            <% if other_user != current_user %>
-              <li class="list-group-item">
-                <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
-                  <%= other_user.username %>
-                <% end %>
-              </li>
-            <% end %>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <div class="col-md-5">
-      <h1>Current agency chat</h1>
+    <div class="col-md-7 mt-5">
+      <h1>Agency messages</h1>
       <br>
-      <table class="table table-bordered">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Agencies</th>
-            <th scope="col">Updated At</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
             <% if @existing_message_boards_users %>
               <% @existing_message_boards_users.each do |other_user| %>
                 <% if other_user != current_user %>
-                  <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
-                    <%= other_user.username %>
+          <tr>
+            <td>
+                  <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
+                    <%= other_user.agency.name %>
                   <% end %>
+            </td>
+          </tr>
                 <% end %>
               <% end %>
             <% end %>
-            </td>
-            <td>
-
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
