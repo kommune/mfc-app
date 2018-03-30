@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions" }
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: "users/registrations"}
 
+  authenticate :admin  do
+    mount Searchjoy::Engine, at: "admin/searches"
+  end
+
   resources :agencies, only: [:index, :show] do
     get 'home', on: :collection
     get 'search', on: :collection

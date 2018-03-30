@@ -45,6 +45,11 @@
               </div>
 
               <div class="form-group">
+                <%= f.label :agency_id %>
+                <%= f.collection_select :agency_id, User.all, :id, :name, {include_blank: 'Please Select'}, {class: "form-control"} %>
+              </div>
+
+              <div class="form-group">
                 <%= f.label :birth_date, "Date of Birth" %>
                 <%= f.date_select :birth_date, start_year: 1920, end_year: Date.today.year, order: [:day, :month, :year], default: Date.today, class: "form-control" %>
               </div>
