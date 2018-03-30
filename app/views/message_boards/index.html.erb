@@ -7,7 +7,7 @@
           <% @agency_user.each do |other_user| %>
             <% if other_user != current_user %>
               <li class="list-group-item">
-                <%= link_to(user_message_boards_path(current_user, :other_user => other_user.id), method: :post) do %>
+                <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
                   <%= other_user.username %>
                 <% end %>
               </li>
