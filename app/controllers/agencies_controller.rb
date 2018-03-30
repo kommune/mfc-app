@@ -5,18 +5,20 @@ class AgenciesController < ApplicationController
     conditions = {}
     conditions[:area] = params[:area] if params[:area].present?
     conditions[:categories_name] = params[:categories_name] if params[:categories_name].present?
-    
+
     @agencies = Agency.search(
       search,
       where: conditions,
       aggs: [:area, :categories_name],
-      smart_aggs: false, 
-      order: {name: :asc}
+      smart_aggs: false,
+      order: {name: :asc},
+
     )
   end
 
   def show
     @agency = Agency.find(params[:id])
+    @other_user = @agency.user.agency_id
   end
 
   def search

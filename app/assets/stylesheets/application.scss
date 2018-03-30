@@ -139,7 +139,7 @@ body {
 }
 
 .categories-item:hover{
-    color: #fff;
+    color: black;
     background-color: #B8DDD4;
 }
 
@@ -229,6 +229,8 @@ body {
 
 .messages-text {
   text-align: left;
+  max-height: 300px;
+  bottom: 0;
 }
 
 .bottom-wrapper {
@@ -237,32 +239,11 @@ body {
   background-color: #fff;
   padding: 20px 20px;
   position: absolute;
-  bottom: 0;
-}
-
-.bottom-wrapper .messages-input-wrapper {
-  display: inline-block;
-  height: 50px;
-  border-radius: 25px;
-  border: 1px solid #bcbdc0;
-  width: calc(100% - 160px);
-  position: relative;
-  padding: 0 20px;
-}
-
-.bottom_wrapper .message_input_wrapper .message_input {
-  border: none;
-  height: 100%;
-  box-sizing: border-box;
-  width: calc(100% - 40px);
-  position: absolute;
-  outline-width: 0;
-  color: gray;
 }
 
 .message-input {
   display: inline-block;
-  height: 50px;
+
   border-radius: 25px;
   border: 1px solid #bcbdc0;
   width: 100%;
