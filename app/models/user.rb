@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :subscriptions
   has_many :message_boards, through: :subscriptions
+  has_many :visits, class_name: "Ahoy::Visit"
 
   belongs_to :agency, optional: true
 
