@@ -11,9 +11,9 @@
         </div>
         <br>
         <div class="card mb-5">
-          <div class="card-body mb-5">
+          <div class="card-body mb-1">
             <h3>Map</h3>
-              <iframe width="700" height="450" frameborder="0" style="border:0"
+              <iframe width="690" height="450" frameborder="0" style="border:0"
               src="https://www.google.com.sg/maps/embed/v1/place?q=<%=" #{sprintf('%06i', @agency.postal_code)} "%>&key=<%=ENV['GOOGLE_API_KEY2']%>" allowfullscreen></iframe>
           </div>
         </div>
@@ -23,8 +23,8 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item agency-color"><h5><%= icon('fas', 'map-marker' ) + "  Address" %></h5><span class="text-muted"><%= @agency.street_name %><br>Singapore <%= "#{sprintf('%06i', @agency.postal_code)}" %></span></li>
           <li class="list-group-item agency-color"><h5><%= icon('fas', 'clock' ) + "  Opening Hours" %></h5><span class="text-muted"><%= @agency.opening_hours%></span></li>
-          <li class="list-group-item agency-color"><h5><%= icon('fas', 'phone' ) + "  Address" %></h5><%= link_to "Dial: " + @agency.office_number.to_s, nil, class: 'btn btn-outline-primary d-flex justify-content-center' %><br><%= link_to 'Fax: ' + @agency.fax_number.to_s, nil, class: 'btn btn-outline-info d-flex justify-content-center' %><br></li>
-          <li class="list-group-item agency-color"><%= icon('fas', 'envelope' ) %>&nbsp&nbsp<%=  mail_to  @agency.email, @agency.email, class: 'email-link' %><br><br><%= icon('fas', 'link' ) %>&nbsp&nbsp<%= link_to @agency.website,  @agency.website, class: 'email-link' %></li>
+          <li class="list-group-item agency-color"><h5><%= icon('fas', 'phone' ) + "  Contact" %></h5><%= link_to "Dial: " + @agency.office_number.to_s, nil, class: 'btn btn-outline-primary d-flex justify-content-center' %><br><%= link_to 'Fax: ' + @agency.fax_number.to_s, nil, class: 'btn btn-outline-primary d-flex justify-content-center' %><br><%= link_to 'Live Chat With Agency', nil, class: 'btn btn-outline-success d-flex justify-content-center' %><br></li>
+          <li class="list-group-item agency-color"><h5><%= icon('fas', 'envelope' ) + " Email" %>&nbsp&nbsp</h5><%=  mail_to  @agency.email, @agency.email, class: 'email-link' %><h5><br><%= icon('fas', 'link' ) + " Website" %>&nbsp&nbsp</h5><%= link_to @agency.website,  @agency.website, class: 'email-link' %></li>
         </ul>
       </div>
       <br>
