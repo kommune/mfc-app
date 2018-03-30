@@ -25,6 +25,8 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_many :message_boards, through: :subscriptions
 
+  belongs_to :agency, optional: true
+
   def user?
     self.role == "user"
   end

@@ -1,5 +1,6 @@
+
 <div class="container-message-board">
-  <h5>Message board with <%= @other_user.username %></h5>
+  <h5>Message board with <%= @other_user.agency.name %></h5>
     <% if @message_board.messages.any? %>
       <div class="container">
         <div class="row">
@@ -20,14 +21,7 @@
       <div class="row message-input-wrapper">
         <div class="col-md-12 messages-input">
           <%= render partial: 'messages/message_form', locals: {message: @message, message_board: @message_board} %>
-          <p><%= link_to "Back to list of message boards", user_message_boards_path(current_user.id) %></p>
         </div>
       </div>
     </div>
 </div>
-
-  <script>
-    createMessageChannel();
-    messageForm();
-    $(".messages-text").scrollTop($(".messages-text")[0].scrollHeight);
-  </script>
