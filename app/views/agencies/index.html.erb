@@ -1,16 +1,12 @@
 <section id="agency-index">
   <div class="container">
     <div id="load-more" class="row justify-content-center">
-      
-      <%= render 'sidebar' %>
+
       <%= render 'agency' %>
+      <%= render 'sidebar' %>
 
     </div>
-    <div class="row justify-content-center mt-3 pb-4">
-      <div class="col-md-8">
-        <%= link_to_next_page @agencies, 'Load More', id: "load_more_link", class: "btn btn-light btn-block", remote: true %>
-      </div>
-    </div>
+
   </div>
 </section>
 
