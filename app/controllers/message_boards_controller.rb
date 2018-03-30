@@ -27,6 +27,13 @@ class MessageBoardsController < ApplicationController
     @message = Message.new
   end
 
+  def destroy
+    @other_user = User.find(params[:user_id])
+    @message_board = MessageBoard.find_by(id: params[:id])
+    @message_board.destroy
+    redirect_to user_message_boards_path
+  end
+
   private
 
   def find_chat(second_user)
