@@ -12,7 +12,7 @@ end
 puts "Category created"
 
 CSV.foreach(Rails.root.join("db/seeds_data/users.csv"), headers: true) do |row|
-  User.create!(email: row[0], password: row[1], username: row[2], name: row[3], postal_code: row[4], role: row[5])
+  User.create!(email: row[0], password: row[1], username: row[2], name: row[3], postal_code: row[4], role: row[5], agency_id: row[6])
 end
 
 puts "Agency users created"
