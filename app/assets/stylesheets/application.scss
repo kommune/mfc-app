@@ -243,10 +243,21 @@ body {
 
 .message-input {
   display: inline-block;
-
   border-radius: 25px;
   border: 1px solid #bcbdc0;
   width: 100%;
   position: relative;
   padding: 0 20px;
+}
+
+.background-message-board {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+  min-height: 100vh;
+}
+
+.message-board-index {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+  min-height: 100vh;
 }
