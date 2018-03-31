@@ -1,5 +1,5 @@
 <%= form_for message, remote: true, authenticity_token: true do |f| %>
-  <%= f.text_area :body, data: {textarea: "message"}, placeholder: "Enter to send", rows:"4", class: 'message-input' %>
+  <%= f.text_area :body, data: {textarea: "message"}, placeholder: "Enter to send", rows:"3", class: 'message-input' %>
 
 <%= f.hidden_field :message_board_id, value: message_board.id %>
 <% end %>
