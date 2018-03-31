@@ -1,8 +1,5 @@
 <div class="container-fluid">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <%= link_to 'Dashboard', admin_root_path %>
-    </li>
     <li class="breadcrumb-item active">All Users</li>
     <li class="breadcrumb-item">
       <%= link_to 'Public Users', public_admin_users_path %>
@@ -30,6 +27,7 @@
             <td><%= sprintf('%06i', user.postal_code) %></td>
             <td>
               <%= link_to 'Show', admin_user_path(user) %>
+              <%= link_to 'Edit', edit_admin_user_path(user) %>
             </td>
           </tr>
           <% end %>

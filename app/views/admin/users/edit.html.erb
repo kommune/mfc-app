@@ -17,10 +17,13 @@
 <div class="container-fluid">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <%= link_to 'Dashboard', admin_root_path %>
+      <%= link_to 'All Users', admin_users_path %>
+    </li>
+        <li class="breadcrumb-item">
+      <%= link_to 'Public Users', public_admin_users_path %>
     </li>
     <li class="breadcrumb-item">
-      <%= link_to 'User Management', admin_users_path %>
+      <%= link_to 'Agency Users', agency_admin_users_path %>
     </li>
     <li class="breadcrumb-item active">Edit User Infomation</li>
   </ol>
@@ -88,7 +91,6 @@
               </div>
 
               <div class="form-group">
-                <%= link_to 'Back Index', admin_users_path, class: 'btn btn-info'%>
                 <%= f.submit class: "btn btn-primary" %>
               </div>
             </form>

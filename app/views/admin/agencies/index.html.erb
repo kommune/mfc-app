@@ -1,16 +1,12 @@
 <div class="container-fluid">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <%= link_to 'Dashboard', admin_root_path %>
-    </li>
     <li class="breadcrumb-item active">Agencies</li>
+    <li class="breadcrumb-item">
+      <%= link_to 'New Agency', new_admin_agency_path %>
+    </li>
   </ol>
   <div class="row">
     <div class="col-md-12">
-      <div>
-        <%= link_to 'New Agency', new_admin_agency_path, class: "btn btn-primary" %>
-      </div>
-      <br>
       <table class="table table-hover">
         <thead>
           <tr>

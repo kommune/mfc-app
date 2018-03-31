@@ -1,10 +1,13 @@
 <div class="container-fluid">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <%= link_to 'Dashboard', admin_root_path %>
+      <%= link_to 'All Users', admin_users_path %>
+    </li>
+        <li class="breadcrumb-item">
+      <%= link_to 'Public Users', public_admin_users_path %>
     </li>
     <li class="breadcrumb-item">
-      <%= link_to 'User Management', admin_contacts_path %>
+      <%= link_to 'Agency Users', agency_admin_users_path %>
     </li>
     <li class="breadcrumb-item active">User Infomation</li>
   </ol>
