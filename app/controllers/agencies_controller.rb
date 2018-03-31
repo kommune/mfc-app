@@ -12,10 +12,26 @@ class AgenciesController < ApplicationController
       aggs: [:area, :categories_name],
       smart_aggs: false,
       order: {name: :asc},
-      track: {user_id: current_user.id}
+      # track: {user_id: current_user.id}
     )
   end
 
+  def filter
+    search = params[:search].presence || "*"
+    conditions = {}
+    conditions[:area] = params[:area] if params[:area].present?
+    conditions[:categories_name] = params[:categories_name] if params[:categories_name].present?
+
+    @agencies = Agency.search(
+      search,
+      where: conditions,
+      aggs: [:area, :categories_name],
+      smart_aggs: false,
+      order: {name: :asc},
+      # track: {user_id: current_user.id}
+    )
+  end
+  
   def show
     @agency = Agency.find(params[:id])
     @other_user = @agency.user.agency_id
