@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   root to: "agencies#home"
 
   namespace :admin do
+    get '/dashboard', to: 'agencies#dashboard'
     resources :agencies
     resources :categories
     resources :contacts, only: [:index, :show, :update, :destroy]
