@@ -1,6 +1,15 @@
-<div class="container ">
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to 'Dashboard', admin_root_path %>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to 'Categories', admin_agencies_path %>
+    </li>
+    <li class="breadcrumb-item active">Edit Category</li>
+  </ol>
   <div class="row d-flex justify-content-center">
-    <div class="col-md-6 mt-5">
+    <div class="col-md-6">
       <%= form_for [:admin, @category] do |f| %>
         <div class="card">
           <div class="card-header">
