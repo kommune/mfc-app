@@ -1,38 +1,59 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to 'Dashboard', admin_root_path %>
+    </li>
+    <li class="breadcrumb-item">
+      <%= link_to 'User Management', admin_contacts_path %>
+    </li>
+    <li class="breadcrumb-item active">User Infomation</li>
+  </ol>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+      <div class="card mt-3">
+        <div class="card-header">
+          <h4><%= @user.name %></h4>
+        <div class="card-body">
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+          <p>
+            <strong>Username:</strong>
+            <%= @user.username %>
+          </p>
 
-<p>
-  <strong>E-mail:</strong>
-  <td><%= @user.email%></td>
-</p>
-<p>
-  <strong>Postal Code:</strong>
-  <td><%= @user.postal_code %></td>
-</p>
-<p>
-  <strong>Date of birth:</strong>
-  <td><%= @user.birth_date %></td>
-</p>
-<p>
-  <strong>Gender:</strong>
-  <td><%= @user.gender %></td>
-</p>
-<p>
-  <strong>Marital Status:</strong>
-  <td><%= @user.marital_status %></td>
-</p>
-<p>
-  <strong>Children:</strong>
-  <td><%= @user.children %></td>
-</p>
+          <p>
+            <strong>E-mail:</strong>
+            <td><%= @user.email%></td>
+          </p>
+          <p>
+            <strong>Postal Code:</strong>
+            <td><%= sprintf('%06i', @user.postal_code) %></td>
+          </p>
+          <p>
+            <strong>Date of birth:</strong>
+            <td><%= @user.birth_date %></td>
+          </p>
+          <p>
+            <strong>Gender:</strong>
+            <td><%= @user.gender.capitalize %></td>
+          </p>
+          <p>
+            <strong>Marital Status:</strong>
+            <td><%= @user.marital_status.capitalize %></td>
+          </p>
+          <p>
+            <strong>Children:</strong>
+            <td><%= @user.children.capitalize %></td>
+          </p>
+        </div>
+          <%= link_to 'Edit User', edit_admin_user_path(@user), class: 'btn btn-primary'%>
+          <%= link_to 'Delete', admin_user_path(@user), method: :delete, data: {confirm:"Are you sure?"}, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Back Index', admin_users_path, class: 'btn btn-info'%> 
-<%= link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-primary'%>
-<%= link_to 'Delete', admin_user_path(@user), method: :delete, data: {confirm:"Are you sure?"}, class: 'btn btn-danger' %> 
+
+
+
+
