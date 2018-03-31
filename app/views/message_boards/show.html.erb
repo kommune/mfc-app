@@ -1,27 +1,28 @@
-
-<div class="container-message-board">
-  <h5>Message board with <%= @other_user.agency.name %></h5>
-    <% if @message_board.messages.any? %>
-      <div class="container">
-        <div class="row">
-          <div class= "col-md-12 messages-text" id="messages" style="overflow-y; overflow-x:hidden; scroll; height:400px;">
-            <%= render partial: 'messages/message', collection: @message_board.messages.order(id: :asc) %>
+<div class="background-message-board">
+  <div class="container-message-board">
+    <h5>Message board with <%= @other_user.agency.name %></h5>
+      <% if @message_board.messages.any? %>
+        <div class="container">
+          <div class="row">
+            <div class= "col-md-12 messages-text" id="messages" style="overflow-y; overflow-x:hidden; scroll; height:400px;">
+              <%= render partial: 'messages/message', collection: @message_board.messages.order(id: :asc) %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="container">
+          <div class="row">
+            <div class= "col-md-12 messages-text" id="messages">
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="container bottom-wrapper">
+        <div class="row message-input-wrapper">
+          <div class="col-md-12 messages-input">
+            <%= render partial: 'messages/message_form', locals: {message: @message, message_board: @message_board} %>
           </div>
         </div>
       </div>
-    <% else %>
-      <div class="container">
-        <div class="row">
-          <div class= "col-md-12 messages-text" id="messages">
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <div class="container bottom-wrapper">
-      <div class="row message-input-wrapper">
-        <div class="col-md-12 messages-input">
-          <%= render partial: 'messages/message_form', locals: {message: @message, message_board: @message_board} %>
-        </div>
-      </div>
-    </div>
+  </div>
 </div>
