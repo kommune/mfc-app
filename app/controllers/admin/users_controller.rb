@@ -30,6 +30,14 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
+  def public
+    @users = User.where(role: "user").order("created_at DESC")
+  end
+
+  def agency
+    @users = User.where(role: "agency_user").order("created_at DESC")
+  end
+
   private
 
   def user_params

@@ -79,6 +79,14 @@ body.fixed-nav {
   max-height: 75vh;
 }
 
+.fa-angle-down:before {
+  content: "\f107";
+}
+
+.fa-angle-right:before {
+  content: "\f105";
+}
+
 #mainNav .navbar-collapse .navbar-nav .nav-item .nav-link {
   cursor: pointer;
 }
@@ -86,7 +94,7 @@ body.fixed-nav {
 #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
   float: right;
   content: '\f107';
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
 }
 
 #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse.collapsed:after {
