@@ -1,16 +1,12 @@
-<div class="container">
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to 'Dashboard', admin_agencies_path %>
+    </li>
+    <li class="breadcrumb-item active">Categories</li>
+  </ol>
   <div class="row">
     <div class="col-md-12">
-      <h1>Categories</h1>
-      <br>
-      <div>
-        <%= link_to 'Agency', admin_agencies_path %> |
-        <%= link_to 'Category', admin_categories_path %> |
-        <%= link_to 'Feedback', admin_contacts_path %> |
-        <%= link_to 'User', admin_users_path %> |
-        <%= link_to 'Search Analytics', searchjoy_path %>
-      </div>
-      <br>
       <div class="form-inline" >
         <%= form_for [:admin, @category] do |f| %>
           <div class="form-group">
