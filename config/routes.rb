@@ -24,10 +24,14 @@ Rails.application.routes.draw do
   root to: "agencies#home"
 
   namespace :admin do
+    get '/dashboard', to: 'agencies#dashboard'
     resources :agencies
     resources :categories
     resources :contacts, only: [:index, :show, :update, :destroy]
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update, :destroy] do
+      get 'public', on: :collection
+      get 'agency', on: :collection
+    end
     root to: "agencies#index"
   end
 

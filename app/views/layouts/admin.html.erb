@@ -11,26 +11,50 @@
     <%= csrf_meta_tags %>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+    <script> window.FontAwesomeConfig = { searchPseudoElements: true }</script>
 
     <%= stylesheet_link_tag    'admins', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to "Home", admin_root_path, class: "navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <body class="padding">
+     <%# <nav class="navbar navbar-expand-lg navbar-light bg-light"> %>
+      <%# <%= link_to "Home", admin_root_path, class: "navbar-brand" %>
+      <%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> %>
+        <%# <span class="navbar-toggler-icon"></span> %>
+      <%# </button> %>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          <% if current_admin %>
-            <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_admin_session_path, method: :delete, class: 'nav-link') %></li>
-          <% end %>
-        </ul>
+      <%# <div class="collapse navbar-collapse" id="navbarSupportedContent"> %>
+        <%# <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex"> %>
+          <%# <% if current_admin %>
+            <%# <li class="nav-item navbar-nav "><%= link_to('Log out', destroy_admin_session_path, method: :delete, class: 'nav-link') %></li>
+          <%# <% end %>
+        <%# </ul> %>
+      <%# </div> %>
+    <%# </nav> %>
+    <%= render "admin/shared/navbar" %>
+    <div class="content-wrapper">
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </nav>
-    <%= yield %>
+      <%= yield %>
+    </div>
+
+
+
   </body>
 </html>
