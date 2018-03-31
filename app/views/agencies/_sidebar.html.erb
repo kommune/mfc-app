@@ -1,17 +1,18 @@
 <div class="col-md-3 mt-3">
-  <% if @agencies.aggs["area"].present? %>
-    <span>Agency</span>
-    <ul class="menu">
-    <% @agencies.aggs["area"]["buckets"].each do |filter| %>
-      <li><%= link_to "#{filter["key"].humanize} (#{filter["doc_count"]})", "/agencies?area[]=#{filter["key"]}" %></li>
+  <%= form_tag filter_agencies_path do %>
+    <% if @agencies.aggs["area"].present? %>
+      <strong>Filter by Areas</strong><br />
+      <% @agencies.aggs["area"]["buckets"].each do |filter| %>
+        <%= check_box_tag "area[]", filter["key"] %><%= label_tag "#{filter["key"]} (#{filter["doc_count"]})" %>
+        <br />
+      <% end %>
     <% end %>
-    </ul>
+    <%= submit_tag "Filter by Area", class: "btn btn-success btn-sm"%>
   <% end %>
-
   <p></p>
 
   <% if @agencies.aggs["categories_name"].present? %>
-    <span>Categories</span>
+    <strong>Filter by Categories</strong>
     <ul class="menu">
     <% @agencies.aggs["categories_name"]["buckets"].each do |filter| %>
       <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/agencies?categories_name[]=#{filter["key"]}" %></li>

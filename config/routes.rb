@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :agencies, only: [:index, :show] do
     get 'home', on: :collection
     get 'search', on: :collection
+    post 'filter', on: :collection
   end
   resources :categories, only: [:show]
 
