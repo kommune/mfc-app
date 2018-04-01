@@ -1,5 +1,13 @@
 class Agency < ApplicationRecord
 
+  validates :name, presence: true
+
+  enum area: [ :north, :south, :east, :west, :central, :all_areas ]
+
+  has_one :user
+  has_many :agencies_categories, dependent: :destroy
+  has_many :categories, through: :agencies_categories
+
   searchkick word_start: [:name, :street_name, :description]
   scope :search_import, -> { includes(:categories) }
 
@@ -9,13 +17,5 @@ class Agency < ApplicationRecord
     )
   end
 
-  validates :name, presence: true
-
-  enum area: [ :north, :south, :east, :west, :central, :all_areas ]
-
-  has_many :agencies_categories, dependent: :destroy
-  has_many :categories, through: :agencies_categories
-
-  has_one :user
 
 end
