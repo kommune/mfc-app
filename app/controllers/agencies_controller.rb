@@ -1,6 +1,7 @@
 class AgenciesController < ApplicationController
 
   def index
+
     search = params[:search].presence || "*"
     conditions = {}
     conditions[:area] = params[:area] if params[:area].present?
@@ -14,7 +15,7 @@ class AgenciesController < ApplicationController
       order: {name: :asc},
       page: params[:page],
       per_page: 7,
-      # track: {user_id: current_user.id}
+      track: true
     )
   end
 
@@ -30,7 +31,7 @@ class AgenciesController < ApplicationController
       aggs: [:area, :categories_name],
       smart_aggs: false,
       order: {name: :asc},
-      # track: {user_id: current_user.id}
+      track: true
     )
   end
 
@@ -41,6 +42,13 @@ class AgenciesController < ApplicationController
   end
 
   def search
+
+    user_id = nil
+
+    if current_user
+      user_id = current_user.id
+    end
+
     if params[:search]
       @agencies = Agency.search(
         params[:search],
@@ -53,7 +61,7 @@ class AgenciesController < ApplicationController
         operator: "or",
         page: params[:page],
         per_page: 7,
-        # track: {user_id: current_user.id}
+        track: true
       )
     else
       @agencies = Agency.all
