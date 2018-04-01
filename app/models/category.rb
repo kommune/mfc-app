@@ -11,4 +11,6 @@ class Category < ApplicationRecord
     Agency.reindex
   end
 
+  visitable
+
 end

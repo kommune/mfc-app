@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update, :destroy] do
       get 'public', on: :collection
       get 'agency', on: :collection
+      get 'ahoy', on: :collection
     end
     root to: "agencies#index"
   end

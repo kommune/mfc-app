@@ -1,0 +1,16 @@
+<p>User created at:</p>
+<%= line_chart User.group_by_day(:created_at).count %>
+<p>Visit started at:</p>
+<%= line_chart Ahoy::Visit.group_by_day(:started_at).count %>
+<p>Referring domain:</p>
+<%= pie_chart Ahoy::Visit.group(:referring_domain).count %>
+<p>Group by Users:</p>
+<%= column_chart Ahoy::Visit.group(:user).count %>
+<p>Browser used:</p>
+<%= pie_chart Ahoy::Visit.group(:browser).count %>
+<p>OS used:</p>
+<%= pie_chart Ahoy::Visit.group(:os).count %>
+<p>Device type used:</p>
+<%= pie_chart Ahoy::Visit.group(:device_type).count %>
+<p>Region:</p>
+<%= pie_chart Ahoy::Visit.group(:region).count %>
