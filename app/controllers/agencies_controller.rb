@@ -12,6 +12,8 @@ class AgenciesController < ApplicationController
       aggs: [:area, :categories_name],
       smart_aggs: false,
       order: {name: :asc},
+      page: params[:page],
+      per_page: 7,
       # track: {user_id: current_user.id}
     )
   end
@@ -49,7 +51,7 @@ class AgenciesController < ApplicationController
                       },
         operator: "or",
         page: params[:page],
-        per_page: 5,
+        per_page: 7,
         # track: {user_id: current_user.id}
       )
     else
