@@ -2,7 +2,7 @@ class Agency < ApplicationRecord
 
   validates :name, presence: true
 
-  enum area: [ :north, :south, :east, :west, :central, :all_areas ]
+  enum area: [ :north, :south, :east, :west, :central, :no_boundary ]
 
   has_one :user
   has_many :agencies_categories, dependent: :destroy
