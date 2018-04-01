@@ -17,5 +17,6 @@ class Agency < ApplicationRecord
     )
   end
 
+  visitable
 
 end

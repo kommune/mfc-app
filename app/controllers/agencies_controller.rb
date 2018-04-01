@@ -37,6 +37,7 @@ class AgenciesController < ApplicationController
   def show
     @agency = Agency.find(params[:id])
     @other_user = @agency.user.agency_id
+    ahoy.track "Viewed agencies", agency_id: @agency.id
   end
 
   def search
