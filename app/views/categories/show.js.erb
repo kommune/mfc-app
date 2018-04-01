@@ -1,0 +1,2 @@
+$('#load-more').append("<%= j render 'agency' %>");
+$('#load_more_link').replaceWith("<%= j (link_to_next_page @agencies, 'Load More', id: 'load_more_link', class: "btn btn-light btn-block", remote: true)%>");
