@@ -31,7 +31,7 @@ class AgenciesController < ApplicationController
       # track: {user_id: current_user.id}
     )
   end
-  
+
   def show
     @agency = Agency.find(params[:id])
     @other_user = @agency.user.agency_id
@@ -50,7 +50,7 @@ class AgenciesController < ApplicationController
         operator: "or",
         page: params[:page],
         per_page: 5,
-        track: {user_id: current_user.id}
+        # track: {user_id: current_user.id}
       )
     else
       @agencies = Agency.all

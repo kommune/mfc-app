@@ -1,23 +1,31 @@
-<div class="col-md-3 mt-3">
+<div class="col-md-3 mt-3 ">
   <%= form_tag filter_agencies_path do %>
-    <% if @agencies.aggs["area"].present? %>
-      <strong>Filter by Areas</strong><br />
-      <% @agencies.aggs["area"]["buckets"].each do |filter| %>
-        <%= check_box_tag "area[]", filter["key"] %><%= label_tag "#{filter["key"]} (#{filter["doc_count"]})" %>
-        <br />
-      <% end %>
-    <% end %>
-    <%= submit_tag "Filter by Area", class: "btn btn-success btn-sm"%>
-  <% end %>
-  <p></p>
-
-  <% if @agencies.aggs["categories_name"].present? %>
-    <strong>Filter by Categories</strong>
-    <ul class="menu">
-    <% @agencies.aggs["categories_name"]["buckets"].each do |filter| %>
-      <li><%= link_to "#{filter["key"]} (#{filter["doc_count"]})", "/agencies?categories_name[]=#{filter["key"]}" %></li>
-    <% end %>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-dark">
+        <strong>Search By Area</strong>
+      </li>
+      <li class="list-group-item">
+        <% if @agencies.aggs["area"].present? %>
+          <% @agencies.aggs["area"]["buckets"].each do |filter| %>
+            <%= check_box_tag "area[]", filter["key"] %>&nbsp&nbsp<%= label_tag "#{filter["key"]} (#{filter["doc_count"]})" %>
+            <br />
+          <% end %>
+        <% end %>
+      </li>
+      <li class="list-group-item list-group-item-dark">
+        <strong>Search By Category</strong>
+      </li>
+      <li class="list-group-item">
+        <% if @agencies.aggs["categories_name"].present? %>
+          <% @agencies.aggs["categories_name"]["buckets"].each do |filter| %>
+            <%= check_box_tag "categories_name[]", filter["key"] %>&nbsp&nbsp<%= label_tag "#{filter["key"]} (#{filter["doc_count"]})" %>
+            <br>
+          <% end %>
+        <% end %>
+      </li>
     </ul>
+    <br>
+    <%= submit_tag "Search", class: "btn btn-success"%>
   <% end %>
 </div>
 
