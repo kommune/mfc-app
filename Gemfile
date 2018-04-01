@@ -28,6 +28,8 @@ gem 'font-awesome-sass', '~> 5.0', '>= 5.0.6.2'
 gem 'dotenv-rails'
 gem 'searchjoy', '~> 0.3.2'
 gem 'ahoy_matey', '~> 2.0', '>= 2.0.2'
+gem 'groupdate'
+gem 'chartkick'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
