@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def track_action
-    ahoy.track "Page view", "#{controller_name}##{action_name}"
+    ahoy.track "Processed #{controller_name}##{action_name}", request.filtered_parameters
   end
 
   def devise_parameter_sanitizer
