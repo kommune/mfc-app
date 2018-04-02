@@ -10,6 +10,8 @@ class User < ApplicationRecord
   searchkick _all: false, default_fields: [:postal_code]
 
   has_many :visits, class_name: "Ahoy::Visit"
+  
+  visitable
 
   validates :name, presence: true
   validates :username, presence: :true, uniqueness: true
