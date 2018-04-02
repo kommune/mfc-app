@@ -22,7 +22,9 @@
           <div class="col-md-12 messages-input">
             <%= render partial: 'messages/message_form', locals: {message: @message, message_board: @message_board} %>
           </div>
-          <%= link_to "Delete Message Board with #{@other_user.name}", user_message_board_path(current_user, @message_board), method: :delete, data: {confirm:"Are you sure?"} %>
+          <% if current_user.user? %>
+            <%= link_to "Delete Message Board with #{@other_user.name}", user_message_board_path(current_user, @message_board), method: :delete, data: {confirm:"Are you sure?"} %>
+          <% end %>
         </div>
       </div>
   </div>
