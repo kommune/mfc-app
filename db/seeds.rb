@@ -17,7 +17,7 @@ end
 
 puts "Agency users created"
 
-Admin.create!(name: "Admin", username: "admin", email: "admin@example.com", password: "123123")
+Admin.create!(name: "Admin", email: "admin@example.com", password: "123123")
 puts "Default admin created"
 
 User.create!(name: "User1", username: "user1", password: "123123", postal_code: "650175", email: "user1@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22), role: 0)
