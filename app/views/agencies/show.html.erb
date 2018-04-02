@@ -23,6 +23,14 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item agency-color"><h5><%= icon('fas', 'map-marker' ) + "  Address" %></h5><span class="text-muted"><%= @agency.street_name %><br>Singapore <%= "#{sprintf('%06i', @agency.postal_code)}" %></span></li>
           <li class="list-group-item agency-color"><h5><%= icon('fas', 'clock' ) + "  Opening Hours" %></h5><span class="text-muted"><%= @agency.opening_hours%></span></li>
+          <li class="list-group-item agency-color"><h5><%= icon('fa', 'exclamation-triangle' ) + " Boundary Area" %>&nbsp&nbsp</h5><span class="text-muted"><%=  @agency.area.humanize%></span></li>
+          <li class="list-group-item agency-color">
+            <h5><%= icon('fa', 'bookmark' ) + " Assistance Types" %>&nbsp&nbsp</h5>
+            <% @agency.categories.each do |category| %>
+              <span class="text-muted"><%=  category.name %></span>
+              <br>
+              <% end %>
+          </li>
           <li class="list-group-item agency-color">
             <h5><%= icon('fas', 'phone' ) + "  Contact" %></h5>
             <%= link_to "Dial: " + @agency.office_number.to_s, nil, class: 'btn btn-outline-primary d-flex justify-content-center' %><br>
