@@ -20,7 +20,7 @@
                     <tr>
                       <td>
                         <%= link_to(user_message_boards_path(current_user, other_user: other_user.id), method: :post) do %>
-                          <%= other_user.agency.name %>
+                          <%= other_user.name %>
                         <% end %>
                       </td>
                       <td>
