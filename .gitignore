@@ -20,4 +20,4 @@
 
 /db/seeds_data/*
 .env
-.public
+./public
