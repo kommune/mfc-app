@@ -43,12 +43,6 @@ class AgenciesController < ApplicationController
 
   def search
 
-    user_id = nil
-
-    if current_user
-      user_id = current_user.id
-    end
-
     if params[:search]
       @agencies = Agency.search(
         params[:search],
