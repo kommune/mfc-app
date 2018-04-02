@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   authenticate :admin  do
     mount Searchjoy::Engine, at: "admin/searches"
+    mount Blazer::Engine, at: "admin/blazer"
   end
 
   resources :agencies, only: [:index, :show] do
