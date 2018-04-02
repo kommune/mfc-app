@@ -40,8 +40,15 @@
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
         <%= link_to ahoy_admin_users_path, class:"nav-link" do %>
-          <i class="fa fa-fw fa-search"></i>
+          <i class="fa fa-fw fa-chart-pie"></i>
           <span class="nav-link-text">Visit Analytics</span>
+        <% end  %>
+      </li>
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <%= link_to blazer_path, class:"nav-link" do %>
+          <i class="fa fa-fw fa-chart-area"></i>
+          <span class="nav-link-text">Blazer</span>
         <% end  %>
       </li>
     </ul>
