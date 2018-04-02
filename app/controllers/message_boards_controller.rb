@@ -17,6 +17,7 @@ class MessageBoardsController < ApplicationController
       @message_board.save
       @message_board.subscriptions.create(user_id: current_user.id)
       @message_board.subscriptions.create(user_id: @other_user.id)
+      NotifyMailer.new_message(current_user).deliver_later
     end
     redirect_to user_message_board_path(current_user, @message_board, :other_user => @other_user.id)
   end
