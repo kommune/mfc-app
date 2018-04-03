@@ -51,6 +51,8 @@ GEM
       user_agent_parser
     arel (8.0.0)
     ast (2.4.0)
+    attr_encrypted (3.1.0)
+      encryptor (~> 3.0.0)
     autoprefixer-rails (8.2.0)
       execjs
     bcrypt (3.1.11)
@@ -105,6 +107,7 @@ GEM
     elasticsearch-transport (6.0.2)
       faraday
       multi_json
+    encryptor (3.0.0)
     errbase (0.1.0)
     erubi (1.7.1)
     execjs (2.7.0)
@@ -300,6 +303,7 @@ PLATFORMS
 
 DEPENDENCIES
   ahoy_matey (~> 2.0, >= 2.0.2)
+  attr_encrypted
   blazer
   bootstrap (~> 4.0)
   byebug
