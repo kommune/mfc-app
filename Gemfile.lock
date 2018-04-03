@@ -303,7 +303,7 @@ PLATFORMS
 
 DEPENDENCIES
   ahoy_matey (~> 2.0, >= 2.0.2)
-  attr_encrypted
+  attr_encrypted (~> 3.1)
   blazer
   bootstrap (~> 4.0)
   byebug
