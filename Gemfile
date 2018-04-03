@@ -31,6 +31,7 @@ gem 'ahoy_matey', '~> 2.0', '>= 2.0.2'
 gem 'groupdate'
 gem 'chartkick'
 gem 'blazer'
+gem 'sidekiq'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
