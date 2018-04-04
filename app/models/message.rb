@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  
-  attr_encrypted :body, :key => Rails.application.secrets.secret_key_base[0...32]
+
+  attr_encrypted :body, :key => SecureRandom.random_bytes(32)
 
   belongs_to :user
   belongs_to :message_board

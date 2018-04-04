@@ -10,7 +10,7 @@ class User < ApplicationRecord
   searchkick _all: false, default_fields: [:postal_code]
 
   has_many :visits, class_name: "Ahoy::Visit"
-  
+
   visitable
 
   validates :name, presence: true
@@ -34,6 +34,10 @@ class User < ApplicationRecord
 
   def user?
     self.role == "user"
+  end
+
+  def agency_user?
+    self.role == "agency_user"
   end
 
   def existing_message_boards_users
