@@ -35,8 +35,11 @@
             <h5><%= icon('fas', 'phone' ) + "  Contact" %></h5>
             <%= link_to "Dial: " + @agency.office_number.to_s, nil, class: 'btn btn-outline-primary d-flex justify-content-center' %><br>
             <%= link_to 'Fax: ' + @agency.fax_number.to_s, nil, class: 'btn btn-outline-primary d-flex justify-content-center' %><br>
-            <% if user_signed_in? && current_user.user? && current_user !=  @other_user %>
+            <% if user_signed_in? && current_user.user? && current_user !=  @other_user%>
               <%= link_to 'Live Chat With Agency', user_message_boards_path(current_user, other_user: @other_user), method: :post, class: 'btn btn-outline-success d-flex justify-content-center' %><br>
+            <% elsif user_signed_in? && current_user.agency_user? %>
+            <% else %>
+              <%= link_to 'Live Chat With Agency', new_user_session_path, class: 'btn btn-outline-success d-flex justify-content-center' %><br>
             <% end %>
           </li>
           <li class="list-group-item agency-color"><h5><%= icon('fas', 'envelope' ) + " Email" %>&nbsp&nbsp</h5><%=  mail_to  @agency.email, @agency.email, class: 'email-link' %><h5><br><%= icon('fas', 'link' ) + " Website" %>&nbsp&nbsp</h5><%= link_to @agency.website,  @agency.website, class: 'email-link' %></li>
