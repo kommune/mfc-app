@@ -227,7 +227,7 @@ ActiveRecord::Schema.define(version: 20180402060339) do
     t.string "name", null: false
     t.string "username", null: false
     t.integer "postal_code"
-    t.date "birth_date", default: "2018-04-04", null: false
+    t.date "birth_date", default: "2018-04-05", null: false
     t.integer "gender", default: 0
     t.integer "marital_status", default: 0
     t.integer "children", default: 0
