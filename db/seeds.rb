@@ -20,14 +20,14 @@ puts "Agency users created"
 Admin.create!(name: "Admin", email: "admin@example.com", password: "123123")
 puts "Default admin created"
 
-User.create!(name: "User1", username: "user1", password: "123123", postal_code: "650175", email: "user1@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22), role: 0)
-User.create!(name: "User2", username: "user2", password: "123123", postal_code: "650175", email: "user2@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22), role: 0)
-User.create!(name: "User3", username: "user3", password: "123123", postal_code: "650175", email: "user3@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22), role: 0)
-User.create!(name: "User4", username: "user4", password: "123123", postal_code: "650175", email: "user4@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22), role: 0)
+User.create!(name: "User1", username: "user1", password: "123123", postal_code: "650175", email: "user1@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22), role: "user")
+User.create!(name: "User2", username: "user2", password: "123123", postal_code: "650175", email: "user2@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22), role: "user")
+User.create!(name: "User3", username: "user3", password: "123123", postal_code: "650175", email: "user3@montfortcare.org.sg", birth_date: Date.new(1958, 6, 22), role: "user")
+User.create!(name: "User4", username: "user4", password: "123123", postal_code: "650175", email: "user4@montfortcare.org.sg", birth_date: Date.new(1978, 6, 22), role: "user")
 puts "4 users created"
 
 (1..49).each do |x|
-  Agency.find(x).category_ids = [1,2,6,7,8,10,11,12,13,17]
+  Agency.find(x).category_ids = [2,13,17]
 end
 
 (50..73).each do |x|
