@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     if message.save
       ActionCable.server.broadcast("messages_#{message_params[:message_board_id]}",
       message: message.body,
-      user: message.user.username
+      user: message.user.name
       )
     else
       redirect_to user_message_boards_path(current_user)
