@@ -4,7 +4,7 @@
       <% if @message_board.messages.any? %>
         <div class="container">
           <div class="row">
-            <div class= "col-md-12 messages-text" id="messages" style="overflow-y; overflow-x:hidden; scroll; height:400px;">
+            <div class= "col-md-12 messages-text" id="messages" style="overflow-y:scroll; height:400px; overflow-x:hidden;">
               <%= render partial: 'messages/message', collection: @message_board.messages.order(id: :asc) %>
             </div>
           </div>
@@ -29,3 +29,7 @@
       </div>
   </div>
 </div>
+
+<script>
+$(".messages-text").scrollTop($(".messages-text")[0].scrollHeight);
+</script>
