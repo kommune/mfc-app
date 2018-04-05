@@ -4,7 +4,7 @@ class Agency < ApplicationRecord
 
   enum area: [ :north, :south, :east, :west, :central, :no_boundary ]
 
-  has_one :user
+  has_one :user, dependent: :destroy
   has_many :agencies_categories, dependent: :destroy
   has_many :categories, through: :agencies_categories
 

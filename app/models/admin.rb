@@ -4,6 +4,6 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   validates_presence_of :name
-  validates_presence_of :email
+  validates_presence_of :email, unique: true
   
 end
