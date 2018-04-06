@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
 
-  attr_encrypted :body, :key => SecureRandom.random_bytes(32)
+  before_save :encrypted_body
 
   belongs_to :user
   belongs_to :message_board
@@ -11,6 +11,17 @@ class Message < ApplicationRecord
 
   def timestamp
     created_at.strftime('%H:%M:%S %d %B %Y')
+  end
+
+  private
+
+  def encrypted_body
+    salt = ENV['SALT']
+    key = ENV['KEY']
+    crypt = ActiveSupport::MessageEncryptor.new(key)
+    body = self.body
+    encrypted_data = crypt.encrypt_and_sign(body) 
+    self.body = encrypted_data
   end
 
 end

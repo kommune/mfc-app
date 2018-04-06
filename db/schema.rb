@@ -177,7 +177,6 @@ ActiveRecord::Schema.define(version: 20180402060339) do
 
   create_table "messages", force: :cascade do |t|
     t.string "encrypted_body"
-    t.string "encrypted_body_iv"
     t.bigint "user_id"
     t.bigint "message_board_id"
     t.datetime "created_at", null: false
@@ -227,7 +226,7 @@ ActiveRecord::Schema.define(version: 20180402060339) do
     t.string "name", null: false
     t.string "username", null: false
     t.integer "postal_code"
-    t.date "birth_date", default: "2018-04-05", null: false
+    t.date "birth_date", default: "2018-04-06", null: false
     t.integer "gender", default: 0
     t.integer "marital_status", default: 0
     t.integer "children", default: 0
