@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
 
-  attr_encrypted :body, :key => SecureRandom.random_bytes(32)
+  attr_encrypted :body, :key => ENV['KEY'], :iv => ENV['IV']
 
   belongs_to :user
   belongs_to :message_board
