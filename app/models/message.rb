@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
 
-  attr_encrypted :body, :key => ENV['KEY'], :iv => ENV['IV']
+  attr_encrypted :body, :key => ENV['KEY']
 
   belongs_to :user
   belongs_to :message_board
