@@ -13,8 +13,6 @@ class AgenciesController < ApplicationController
       aggs: [:area, :categories_name],
       smart_aggs: false,
       order: {name: :asc},
-      page: params[:page],
-      per_page: 7,
       track: true
     )
   end
