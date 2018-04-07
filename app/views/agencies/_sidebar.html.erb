@@ -1,5 +1,5 @@
 <div class="col-md-3 mt-3">
-  <%= form_tag filter_agencies_path do %>
+  <%= form_tag(filter_agencies_path, remote: true) do %>
     <ul class="list-group">
       <li class="list-group-item list-group-item-dark">
         <strong>Search By Boundary</strong>

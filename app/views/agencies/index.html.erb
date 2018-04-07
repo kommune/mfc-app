@@ -1,12 +1,9 @@
 <section id="agency-index">
   <div class="container">
-    <div id="load-more" class="row">
-      <%= render 'agency' %>
+    <div class="row">
       <%= render 'sidebar' %>
-    </div>
-    <div class="row mt-3">
-      <div class="col-md-7">
-        <%= link_to_next_page @agencies, 'Load More', id: "load_more_link", class: "btn btn-light btn-block", remote: true  %>
+      <div id="load-more" class="col-md-7 mt-3">
+        <%= render 'agency' %>
       </div>
     </div>
   </div>
